@@ -2,8 +2,10 @@ package Game;
 
 public class Player {
 
-    // Determines variables
+    private int score;
 
+    // Determines variables
+    Account account = new Account();
     private String Player;
 
     // Gets the player's name
@@ -13,6 +15,13 @@ public class Player {
 
     public String playerString() {
         return Player;
+    }
+
+    //Updates and keeps track of players score
+    public int playerBalance(int score){
+        account.updateScore(score);
+        return account.score();
+
     }
 
 }

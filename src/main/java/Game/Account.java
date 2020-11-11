@@ -9,30 +9,10 @@ public class Account {
     }
 
     // Updates player score
-    public void updateScore(int sum) {
-
-        points += sum;
-
-        if (points < 0) {
-            points = 0;
-        }
-
-        if (points > 2999) {
-            win = true;
-        }
-
-        if (sum == 1000)
-            points = 1000;
-
-
-    }
+    public void updateScore(int sum) {points += sum;}
 
     // Returns new score
-    public int score() {
-        return points;
-    }
+    public int score() {return points;}
 
-    public boolean isWin() {
-        return win;
-    }
+    public boolean isWin() {return win;}
 }
