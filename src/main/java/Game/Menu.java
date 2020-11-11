@@ -1,6 +1,7 @@
 package Game;
 
 import gui_fields.GUI_Player;
+import gui_main.GUI;
 
 import java.util.Scanner;
 
@@ -21,9 +22,7 @@ public class Menu {
 
 
         while (true) {
-            int numberInput = gui.getUserInteger("Enter a number");
             //Makes the input of the user into lowercase
-
             if (PlayerAmount == 2) {
                 break;
             } else if (PlayerAmount == 3) {

@@ -1,9 +1,13 @@
+package Game;
+
 import gui_fields.*;
 import gui_main.GUI;
 
 import java.awt.*;
 
 public class JuniorGui {
+    private int playerNumber = 0;
+    GUI gui = new GUI();
     public JuniorGui(){
             // Laver array
             GUI_Field[] fields = new GUI_Field[24];
@@ -92,5 +96,10 @@ public class JuniorGui {
             }
 
             GUI gui = new GUI(fields);
+        }
+        public int getPlayerNumber(){
+            int PlayerNumber = gui.getUserInteger("Indtast antallet af spillere");
+            return playerNumber;
+
         }
     }
