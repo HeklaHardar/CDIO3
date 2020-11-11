@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class JuniorGui {
     private int playerNumber = 0;
-    GUI gui = new GUI();
+    GUI gui;
     public JuniorGui(){
             // Laver array
             GUI_Field[] fields = new GUI_Field[24];
@@ -95,11 +95,49 @@ public class JuniorGui {
                 }
             }
 
-            GUI gui = new GUI(fields);
+            this.gui = new GUI(fields);
         }
         public int getPlayerNumber(){
             int PlayerNumber = gui.getUserInteger("Indtast antallet af spillere");
+            this.playerNumber = PlayerNumber;
             return playerNumber;
 
+        }
+        public String[] getPlayerNames(){
+        String[] Players = new String[4];
+            if (playerNumber == 2) {
+                gui.showMessage("Velkommen til spillet!");
+
+                Players[0] = gui.getUserString("Indtast navne for spiller 1: ");
+
+
+                Players[1] = gui.getUserString("Indtast navne for spiller 2: ");
+            }
+
+
+            // If three players are selected
+            else if (playerNumber == 3) {
+                gui.showMessage("Velkommen til spillet!");
+
+                Players[0] = gui.getUserString("Indtast navne for spiller 1: ");
+
+                Players[1] = gui.getUserString("Indtast navne for spiller 2: ");
+
+                Players[2] = gui.getUserString("Indtast navne for spiller 3: ");
+            }
+            // If four players are selected
+            else if (playerNumber == 4) {
+                gui.showMessage("Velkommen til spillet!");
+
+                Players[0] = gui.getUserString("Indtast navne for spiller 1: ");
+
+                Players[1] = gui.getUserString("Indtast navne for spiller 2: ");
+
+                Players[2] = gui.getUserString("Indtast navne for spiller 3: ");
+
+                Players[3] = gui.getUserString("Indtast navne for spiller 4: ");
+
+            }
+            return Players;
         }
     }

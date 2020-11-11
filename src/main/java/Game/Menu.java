@@ -16,8 +16,8 @@ public class Menu {
     private String player4 = "";
 
     // Starts the menu
-    public void Menu() {
-
+    public void Menu(int playernumber) {
+        this.PlayerAmount = playernumber;
         System.out.println("Vælg antal spillere mellem 2-4");
 
 
@@ -47,11 +47,9 @@ public class Menu {
 
             System.out.print("Indtast navn for spiller 1: ");
             String player1String = scan.nextLine();
-            GUI_Player player1 = new GUI_Player(player1String,0);
 
             System.out.print("Indtast navn for spiller 2: ");
             String player2String = scan.nextLine();
-            GUI_Player player2 = new GUI_Player(scan.nextLine(),0);
             System.out.println("");
         }
 
