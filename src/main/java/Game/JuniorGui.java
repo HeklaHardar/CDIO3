@@ -98,7 +98,8 @@ public class JuniorGui {
             this.gui = new GUI(fields);
         }
         public int getPlayerNumber(){
-            int PlayerNumber = gui.getUserInteger("Indtast antallet af spillere");
+            int PlayerNumber = gui.getUserInteger("Velkommen til spillet! \n" +
+                    "Indtast antallet af spillere");
             this.playerNumber = PlayerNumber;
             return playerNumber;
 
@@ -106,18 +107,14 @@ public class JuniorGui {
         public String[] getPlayerNames(){
         String[] Players = new String[4];
             if (playerNumber == 2) {
-                gui.showMessage("Velkommen til spillet!");
 
                 Players[0] = gui.getUserString("Indtast navne for spiller 1: ");
-
 
                 Players[1] = gui.getUserString("Indtast navne for spiller 2: ");
             }
 
-
             // If three players are selected
             else if (playerNumber == 3) {
-                gui.showMessage("Velkommen til spillet!");
 
                 Players[0] = gui.getUserString("Indtast navne for spiller 1: ");
 
@@ -127,7 +124,6 @@ public class JuniorGui {
             }
             // If four players are selected
             else if (playerNumber == 4) {
-                gui.showMessage("Velkommen til spillet!");
 
                 Players[0] = gui.getUserString("Indtast navne for spiller 1: ");
 
