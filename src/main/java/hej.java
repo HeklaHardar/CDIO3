@@ -9,11 +9,11 @@ public class hej {
 
         CardPicker card = new CardPicker();
         card.CardScrambler();
-      /*  GUI_Player player = new GUI_Player("Mikkel",2000);
+        GUI_Player player = new GUI_Player("Mikkel",2000);
         GUI_Field[] fields = {new GUI_Start(),new GUI_Street(),new GUI_Chance(),new GUI_Jail(),new GUI_Shipping(),new GUI_Brewery(), new GUI_Refuge()};
 
 
-        GUI gui = new GUI(fields);
-        GUI_Field[] field = gui.getFields();*/
+        GUI gui = new GUI();
+       // GUI_Field[] field = gui.getFields();
     }
 }

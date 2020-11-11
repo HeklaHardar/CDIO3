@@ -22,9 +22,7 @@ public class CardPicker {
         }
 
     }
-    public int getInt(int i){
-        return ints[i];
-    }
+
 
  /*   public String Card(){
         Counter +=1 ;

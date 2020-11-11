@@ -4,10 +4,7 @@ public class Account {
 
     private int points = 24;
 
-    public Account() {
-    }
-
-
+    public Account() {}
 
     // Updates player score
     public void updateScore(int sum) {points += sum;}

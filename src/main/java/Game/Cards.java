@@ -1,12 +1,11 @@
 package Game;
 
-import javax.smartcardio.Card;
 
 public class Cards {
 
-    CardPicker cardnumber = new CardPicker();
-    private int counter = 1;
-    private int card = cardnumber.getInt(counter);
+  //  CardPicker cardnumber = new CardPicker();
+    //private int counter = 1;
+   // private int card = cardnumber.getInt(counter);
 
     public Cards(){
 
