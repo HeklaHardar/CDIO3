@@ -6,7 +6,7 @@ import gui_main.GUI;
 public class hej {
 
     public static void main(String[] args) {
-    TestGUI mainGui = new TestGUI();
+    JuniorGui mainGui = new JuniorGui();
 
     }
 
