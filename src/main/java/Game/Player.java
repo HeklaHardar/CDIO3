@@ -17,11 +17,10 @@ public class Player {
         return Player;
     }
 
-    //Updates and keeps track of players score
-    public int playerBalance(int score){
-        account.updateScore(score);
-        return account.score();
+    //Keeps track of the currentplayers score
+    public int playerBalance(){return account.score();}
 
-    }
+    //Updates the currentplayers score
+    public void playerBalanceUpdate(int update){account.updateScore(update);}
 
 }
