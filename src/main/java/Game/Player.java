@@ -3,6 +3,7 @@ package Game;
 public class Player {
 
     private int score;
+    private int playerPosition = 0;
 
     // Determines variables
     Account account = new Account();
@@ -22,5 +23,9 @@ public class Player {
 
     //Updates the currentplayers score
     public void playerBalanceUpdate(int update){account.updateScore(update);}
+
+    public int currentPosition(){return playerPosition;}
+
+    public void updatePosition(int position){playerPosition+=position;}
 
 }
