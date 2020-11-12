@@ -7,7 +7,23 @@ public class CardPicker {
     private int temp;
     private int[] ints = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
     private int Counter = -1;
+
+    private String testString;
     Cards card = new Cards();
+
+    JuniorGui juniorGui = JuniorGui.getInstance();
+
+    public void pickCard(){
+
+        juniorGui.gui.showMessage("Du er en fucking nød");
+        
+    }
+
+    public String cardToString(){
+
+        return juniorGui.gui.getUserString("Skriv noget: ");
+
+    }
 
 
     public void CardScrambler(){

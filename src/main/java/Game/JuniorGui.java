@@ -6,9 +6,17 @@ import gui_main.GUI;
 import java.awt.*;
 
 public class JuniorGui {
-    private int playerNumber = 0;
-    GUI gui;
-    public JuniorGui(){
+    private static JuniorGui instance;
+    //private int playerNumber = 0;
+    public GUI gui;
+
+    public static JuniorGui getInstance() {
+        if (instance == null)
+            instance = new JuniorGui();
+        return instance;
+    }
+
+    private JuniorGui(){
             // Laver array
             GUI_Field[] fields = new GUI_Field[24];
             Color[] fieldColors = {Color.GREEN,Color.BLUE,Color.PINK,Color.YELLOW,Color.RED, Color.cyan, new Color(34,139,34)};
@@ -97,16 +105,28 @@ public class JuniorGui {
 
             this.gui = new GUI(fields);
         }
-        public int getPlayerNumber(){
-            int PlayerNumber = gui.getUserInteger("Velkommen til spillet! \n" +
-                    "Indtast antallet af spillere");
-            this.playerNumber = PlayerNumber;
-            return playerNumber;
+       /* public int getPlayerNumber(){
+            while(true) {
+                int PlayerNumber = gui.getUserInteger("Velkommen til spillet! \n" +
+                        "Indtast antallet af spillere");
+                this.playerNumber = PlayerNumber;
+                if(playerNumber<=4 && playerNumber>=2)
+                    break;
+                else
+                    gui.showMessage("ugyldig antal spillere");
+            }
 
+            return playerNumber;
         }
         public String[] getPlayerNames(){
-        String[] Players = new String[4];
-            if (playerNumber == 2) {
+            String[] Players = new String[4];
+
+            for (int i = 1; i <= playerNumber;i++){
+                Players[i-1] = gui.getUserString("Indtast navn for spiller " + i + ": ");
+            }
+
+
+           /* if (playerNumber == 2) {
 
                 Players[0] = gui.getUserString("Indtast navne for spiller 1: ");
 
@@ -136,4 +156,8 @@ public class JuniorGui {
             }
             return Players;
         }
-    }
+*/
+
+
+
+        }

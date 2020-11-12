@@ -23,4 +23,6 @@ public class Player {
     //Updates the currentplayers score
     public void playerBalanceUpdate(int update){account.updateScore(update);}
 
+    public void starterScore(int players){account.initializeScore(players);}
+
 }

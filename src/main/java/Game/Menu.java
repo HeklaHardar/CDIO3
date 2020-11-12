@@ -14,9 +14,10 @@ public class Menu {
     private String player2 = "";
     private String player3 = "";
     private String player4 = "";
+    private String[] Players = new String[4];
 
     // Starts the menu
-    public void Menu(int playernumber) {
+   /* public void Menu(int playernumber) {
         this.PlayerAmount = playernumber;
         System.out.println("Vælg antal spillere mellem 2-4");
 
@@ -105,5 +106,40 @@ public class Menu {
 
     public String getPlayer4() {
         return player4;
+    }*/
+
+    JuniorGui juniorGui = JuniorGui.getInstance();
+
+    private int playerNumber;
+
+    public void getPlayerNumber() {
+        while (true) {
+            int PlayerNumber = juniorGui.gui.getUserInteger("Velkommen til spillet! \n" +
+                    "Indtast antallet af spillere");
+            playerNumber = PlayerNumber;
+            if (playerNumber <= 4 && playerNumber >= 2)
+                break;
+            else
+                juniorGui.gui.showMessage("ugyldig antal spillere");
+        }
+
+        //return playerNumber;
     }
+
+    public void getPlayerNames() {
+
+        for (int i = 1; i <= playerNumber; i++) {
+            if(i==1)
+                Players[i - 1] = juniorGui.gui.getUserString("Indtast navnet på den yngste spiller");
+            else
+                Players[i - 1] = juniorGui.gui.getUserString("Indtast navn for spiller " + i + ": ");
+
+        }
+        //return Players;
+    }
+    public String[] playernamesToString(){return Players;}
+
+    public int getPlayerAmount(){return playerNumber;}
+
+
 }

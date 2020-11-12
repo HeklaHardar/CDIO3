@@ -2,7 +2,7 @@ package Game;
 
 public class Account {
 
-    private int points = 24;
+    private int points;
 
     public Account() {}
 
@@ -11,4 +11,10 @@ public class Account {
 
     // Returns new score
     public int score() {return points;}
+
+    public void initializeScore(int players){
+
+        points = 24 - 2 * players;
+
+    }
 }
