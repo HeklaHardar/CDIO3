@@ -15,9 +15,7 @@ public class CardPicker {
 
 
     public void toStringTest(JuniorGui juniorGui){
-
         juniorGui.gui.showMessage("test");
-
     }
 
 

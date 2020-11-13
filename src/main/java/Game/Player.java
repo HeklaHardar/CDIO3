@@ -3,6 +3,7 @@ package Game;
 public class Player {
 
     private boolean prisonCard = false;
+    private int position = 0;
 
 
     // Determines variables
@@ -32,6 +33,13 @@ public class Player {
 
     public boolean checkPrisonCard(){
         return prisonCard;
+    }
+    public int currentPosition(){
+        return position;
+    }
+    public int updatePosition(int die){
+        position += die;
+        return position;
     }
 
 }

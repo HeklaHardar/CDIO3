@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Menu {
 
     // Defines variables and scanner
-    private String[] Players = new String[4];
+    private final String[] Players = new String[4];
 
     // Starts the menu
    /* public void Menu(int playernumber) {
@@ -125,10 +125,8 @@ public class Menu {
         }
     }
 
-
     public String[] playernamesToString(){return Players;}
 
     public int getPlayerAmount(){return playerNumber;}
-
 
 }

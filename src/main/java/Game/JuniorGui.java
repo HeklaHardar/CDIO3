@@ -113,21 +113,19 @@ public class JuniorGui {
             }
 
             this.gui = new GUI(fields);
-        }
-        public void guiPlayers(String name, int balance, int i){
+    }
 
-
+    public void guiPlayers(String name, int balance, int i){
+            GUI_Car car = new GUI_Car();
+            car.setPrimaryColor(Color.black);
             player[i] = new GUI_Player(name, balance);
             gui.addPlayer(player[i]);
             fields[0].setCar(player[i],true);
-
-
-
         }
-        public void setCars(int playerAmount){
-                fields[0].setCar(player[playerAmount],true);
 
-
+        public void moveCars(int currentPlayer,int currentPosition, int newPosition){
+            fields[currentPosition].setCar(player[currentPlayer],false);
+            fields[newPosition].setCar(player[currentPlayer],true);
         }
 
 
