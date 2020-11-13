@@ -2,7 +2,8 @@ package Game;
 
 public class Player {
 
-    private int score;
+    private boolean prisonCard = false;
+
 
     // Determines variables
     Account account = new Account();
@@ -24,5 +25,13 @@ public class Player {
     public void playerBalanceUpdate(int update){account.updateScore(update);}
 
     public void starterScore(int players){account.initializeScore(players);}
+
+    public void hasPrisonCard(){
+        prisonCard = true;
+    }
+
+    public boolean checkPrisonCard(){
+        return prisonCard;
+    }
 
 }

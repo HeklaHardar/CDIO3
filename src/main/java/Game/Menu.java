@@ -2,18 +2,13 @@ package Game;
 
 import gui_fields.GUI_Player;
 import gui_main.GUI;
+import Game.JuniorGui;
 
 import java.util.Scanner;
 
 public class Menu {
 
     // Defines variables and scanner
-    Scanner scan = new Scanner(System.in);
-    private int PlayerAmount = 0;
-    private String player1 = "";
-    private String player2 = "";
-    private String player3 = "";
-    private String player4 = "";
     private String[] Players = new String[4];
 
     // Starts the menu
@@ -108,26 +103,19 @@ public class Menu {
         return player4;
     }*/
 
-    JuniorGui juniorGui = JuniorGui.getInstance();
+   // JuniorGui juniorGui = JuniorGui.getInstance();
 
     private int playerNumber;
 
-    public void getPlayerNumber() {
+    public void startGame(JuniorGui juniorGui) {
         while (true) {
-            int PlayerNumber = juniorGui.gui.getUserInteger("Velkommen til spillet! \n" +
+               playerNumber = juniorGui.gui.getUserInteger("Velkommen til spillet! \n" +
                     "Indtast antallet af spillere");
-            playerNumber = PlayerNumber;
             if (playerNumber <= 4 && playerNumber >= 2)
                 break;
             else
                 juniorGui.gui.showMessage("ugyldig antal spillere");
         }
-
-        //return playerNumber;
-    }
-
-    public void getPlayerNames() {
-
         for (int i = 1; i <= playerNumber; i++) {
             if(i==1)
                 Players[i - 1] = juniorGui.gui.getUserString("Indtast navnet på den yngste spiller");
@@ -135,8 +123,9 @@ public class Menu {
                 Players[i - 1] = juniorGui.gui.getUserString("Indtast navn for spiller " + i + ": ");
 
         }
-        //return Players;
     }
+
+
     public String[] playernamesToString(){return Players;}
 
     public int getPlayerAmount(){return playerNumber;}

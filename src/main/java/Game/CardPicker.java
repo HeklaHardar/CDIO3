@@ -11,19 +11,16 @@ public class CardPicker {
     private String testString;
     Cards card = new Cards();
 
-    JuniorGui juniorGui = JuniorGui.getInstance();
+  //  JuniorGui juniorGui = JuniorGui.getInstance();
 
-    public void pickCard(){
 
-        juniorGui.gui.showMessage("Du er en fucking nød");
-        
-    }
+    public void toStringTest(JuniorGui juniorGui){
 
-    public String cardToString(){
-
-        return juniorGui.gui.getUserString("Skriv noget: ");
+        juniorGui.gui.showMessage("test");
 
     }
+
+
 
 
     public void CardScrambler(){

@@ -6,19 +6,24 @@ import gui_main.GUI;
 import java.awt.*;
 
 public class JuniorGui {
-    private static JuniorGui instance;
+   // private static JuniorGui instance;
     //private int playerNumber = 0;
+    private int temp = 0;
+    private int playerCount = 0;
     public GUI gui;
+    private GUI_Field[] fields = new GUI_Field[24];
+    private GUI_Player[] player = new GUI_Player[4];
 
-    public static JuniorGui getInstance() {
+
+   /* public static JuniorGui getInstance() {
         if (instance == null)
             instance = new JuniorGui();
         return instance;
-    }
+    }*/
 
-    private JuniorGui(){
+    public JuniorGui(){
             // Laver array
-            GUI_Field[] fields = new GUI_Field[24];
+            //GUI_Field[] fields = new GUI_Field[24];
             Color[] fieldColors = {Color.GREEN,Color.BLUE,Color.PINK,Color.YELLOW,Color.RED, Color.cyan, new Color(34,139,34)};
             String[] fieldTitles = {"Burgerbaren","Pizzariaet","","Slikbutikken","Iskiosken","","Museet","Biblioteket","","Skaterparken",
                     "Svømmingpoolen","", "Spillehallen", "Biografen","","Legetøjsbutikken","Dyrehandlen","","Bowlinghallen","Zoo","","Vandlandet","Strandpromenaden",""};
@@ -26,7 +31,8 @@ public class JuniorGui {
             // Laver orange startfelt
             fields[0] = new GUI_Start("Start", "", "Her starter du", Color.ORANGE, Color.WHITE);
 
-            // Fylder resten af feltenre ud med veje
+
+        // Fylder resten af feltenre ud med veje
             for( int i=1; i<24; i++) {
                 if (i == 3 || i == 9 || i == 15 || i == 21) {
                     fields[i] = new GUI_Chance();
@@ -98,6 +104,9 @@ public class JuniorGui {
                         fields[i].setBackGroundColor(fieldColors[1]);
                         fields[i].setDescription(fieldTitles[i-1]);
                         fields[i].setSubText("Price: 5M");
+                        //ownable.setRent("20000");
+
+
                     }
 
                 }
@@ -105,6 +114,31 @@ public class JuniorGui {
 
             this.gui = new GUI(fields);
         }
+        public void guiPlayers(String name, int balance, int i){
+
+
+            player[i] = new GUI_Player(name, balance);
+            gui.addPlayer(player[i]);
+            fields[0].setCar(player[i],true);
+
+
+
+        }
+        public void setCars(int playerAmount){
+                fields[0].setCar(player[playerAmount],true);
+
+
+        }
+
+
+     /*   public void setCars(){
+
+
+            GUI_Field field = gui.getFields()[0];
+            field.setCar(player, true);
+
+
+        }*/
        /* public int getPlayerNumber(){
             while(true) {
                 int PlayerNumber = gui.getUserInteger("Velkommen til spillet! \n" +
