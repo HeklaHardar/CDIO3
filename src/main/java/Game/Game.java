@@ -18,6 +18,7 @@ public class Game {
         Die die = new Die(6);
 
         Menu menu = new Menu();
+        juniorGui.createGui();
         menu.startGame(juniorGui);
 
 
@@ -35,6 +36,8 @@ public class Game {
                 die.roll();
                 juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
                 juniorGui.updateGuiBalance(i, player[i].playerBalance());
+
+                //juniorGui.buyField(i,player[i].currentPosition(),player[i].playerString());
             }
         }
 
