@@ -13,6 +13,13 @@ public class JuniorGui {
     public GUI gui;
     private GUI_Field[] fields = new GUI_Field[24];
     private GUI_Player[] player = new GUI_Player[4];
+    private GUI_Car[] car = new GUI_Car[4];
+    private Color[] colors = {Color.black,Color.blue,Color.red,Color.yellow};
+    private GUI_Car.Type[] type = {GUI_Car.Type.CAR,GUI_Car.Type.RACECAR,GUI_Car.Type.UFO,GUI_Car.Type.TRACTOR};
+
+    GUI_Ownable o = (GUI_Ownable) fields[5];
+
+
 
 
 
@@ -51,7 +58,6 @@ public class JuniorGui {
                     fields[i].setDescription("Ryk i fængsel");
                 }
                 else {
-
                     fields[i] = new GUI_Street(
                             "Street " + i,
                             "Price: " + (i * 50),
@@ -107,26 +113,30 @@ public class JuniorGui {
 
                 }
             }
+            GUI.setNull_fields_allowed(true);
 
             this.gui = new GUI(fields);
     }
 
-        public void guiPlayers(String name, int balance, int i){
-            GUI_Car car = new GUI_Car();
-            car.setPrimaryColor(Color.black);
-            player[i] = new GUI_Player(name, balance);
-            gui.addPlayer(player[i]);
-            fields[0].setCar(player[i],true);
 
+    public void guiPlayers(String name, int balance, int i){
+        car[i] = new GUI_Car(colors[i], colors[i], type[i], GUI_Car.Pattern.CHECKERED);
+        player[i] = new GUI_Player(name, balance,car[i]);
+        gui.addPlayer(player[i]);
+        fields[0].setCar(player[i],true);
+       // o.setBorder(Color.red);
         }
 
-        public void moveCars(int currentPlayer,int currentPosition, int newPosition){
-            fields[currentPosition].setCar(player[currentPlayer],false);
-            fields[newPosition].setCar(player[currentPlayer],true);
+
+
+    public void moveCars(int currentPlayer,int currentPosition, int newPosition){
+        fields[currentPosition].setCar(player[currentPlayer],false);
+        fields[newPosition].setCar(player[currentPlayer],true);
         }
 
-        public void updateGuiBalance(int i ,int balance){
-            player[i].setBalance(balance);
+    public void updateGuiBalance(int i ,int balance){
+        player[i].setBalance(balance);
+
         }
 
 

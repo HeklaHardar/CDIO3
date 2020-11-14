@@ -19,16 +19,16 @@ public class Game {
 
         Menu menu = new Menu();
         menu.startGame(juniorGui);
-        cardPicker.toStringTest(juniorGui);
 
 
         for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
             player[i] = new Player(menu.playernamesToString()[i]);
             player[i].starterScore(menu.getPlayerAmount());
             juniorGui.guiPlayers(player[i].playerString(), player[i].playerBalance(), i);
-            //juniorGui.setCars(i);
             //juniorGui.gui.showMessage(player[i].playerString() + " " + player[i].playerBalance());
         }
+
+
         for (int e = 0; e < 1000; e++) {
             juniorGui.gui.getUserString("tryk enter for at slå");
             for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
