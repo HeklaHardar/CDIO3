@@ -11,12 +11,6 @@ public class CardPicker {
     private String testString;
     Cards card = new Cards();
 
-  //  JuniorGui juniorGui = JuniorGui.getInstance();
-
-
-    public void toStringTest(JuniorGui juniorGui){
-        juniorGui.gui.showMessage("test");
-    }
 
 
 

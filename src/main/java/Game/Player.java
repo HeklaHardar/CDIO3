@@ -39,6 +39,10 @@ public class Player {
     }
     public int updatePosition(int die){
         position += die;
+        if(position > 23){
+            position = position - 24;
+            account.updateScore(2);
+        }
         return position;
     }
 
