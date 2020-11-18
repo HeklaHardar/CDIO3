@@ -20,6 +20,7 @@ public class Game {
         // JuniorGui juniorGui = JuniorGui.getInstance();
         JuniorGui juniorGui = new JuniorGui();
         Die die = new Die(6);
+        cardPicker.CardScrambler();
 
         Menu menu = new Menu();
         juniorGui.createGui();
@@ -40,13 +41,23 @@ public class Game {
                 die.roll();
                 juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
                 juniorGui.updateGuiBalance(i, player[i].playerBalance());
+                //juniorGui.buyField(i,player[i].currentPosition(),player[i].playerString());
 
-                juniorGui.buyField(i,player[i].currentPosition(),player[i].playerString());
+                if(player[i].currentPosition()==3 ||player[i].currentPosition()==9||player[i].currentPosition()==15||player[i].currentPosition()==21){
+
+                    cardPicker.DrawCard();
+                    juniorGui.displayCard(cardPicker.Card());
+                    if(cardPicker.hasExtraMoves()) {
+                        juniorGui.moveCars(i, player[i].currentPosition(),  player[i].updatePosition(cardPicker.move()));
+                        juniorGui.updateGuiBalance(i, player[i].playerBalance());
+                    }
+                    player[i].playerBalanceUpdate(cardPicker.cardMoney());
+                    juniorGui.updateGuiBalance(i,player[i].playerBalance());
+
+                }
+
             }
         }
-
-
-        while (true) ;
 
 
     }

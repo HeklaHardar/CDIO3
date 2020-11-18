@@ -35,9 +35,11 @@ public class CardPicker {
         //Blah Blah noget med at trække et kort fra en anden klasse her
 
         first = cards[0];
+        card.CardPick(Counter);
         for (int i = 0; i < cards.length - 1;i++)
             cards[i] = cards[i+1];
         cards[cards.length - 1] = first;
+        Counter += 1;
 
         for (int i:cards
         ) {
@@ -46,10 +48,25 @@ public class CardPicker {
     }
 
 
- /*   public String Card(){
-        Counter +=1 ;
-       return card.CardPick(1);
-    }*/
+    public String Card(){
+        return card.cardToString();
+    }
+    public int move(){
+        if(card.booleanToString())
+            return card.extraFields();
+        else
+            return 0;
+    }
+    public boolean hasExtraMoves(){
+
+        return card.booleanToString();
+
+    }
+    public int cardMoney(){
+
+        return card.extraMoney();
+
+    }
 
 
 }

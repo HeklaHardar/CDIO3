@@ -39,7 +39,11 @@ public class Player {
     }
     public int updatePosition(int die){
         position += die;
-        if(position > 23){
+        if(die == 900) {
+            position = 0;
+            account.updateScore(2);
+        }
+        else if(position > 23){
             position = position - 24;
             account.updateScore(2);
         }

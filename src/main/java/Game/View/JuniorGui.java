@@ -149,6 +149,10 @@ public class JuniorGui {
         o.setOwnerName(playerName);
     }
 
+    public void displayCard(String cardText){
+        gui.displayChanceCard(cardText);
+    }
+
 
 
      /*   public void setCars(){
