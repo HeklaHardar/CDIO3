@@ -51,6 +51,9 @@ public class Game {
                         juniorGui.moveCars(i, player[i].currentPosition(),  player[i].updatePosition(cardPicker.move()));
                         juniorGui.updateGuiBalance(i, player[i].playerBalance());
                     }
+                    if(cardPicker.hasOptions()){
+                        juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(juniorGui.getIntSelection(cardPicker.Card(),cardPicker.max(), cardPicker.min())));
+                    }
                     player[i].playerBalanceUpdate(cardPicker.cardMoney());
                     juniorGui.updateGuiBalance(i,player[i].playerBalance());
 

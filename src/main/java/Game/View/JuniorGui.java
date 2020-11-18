@@ -8,12 +8,13 @@ import java.awt.*;
 public class JuniorGui {
    // private static JuniorGui instance;
     //private int playerNumber = 0;
-    private int temp = 0;
-    private int playerCount = 0;
+
+
     public GUI gui;
     private GUI_Field[] fields = new GUI_Field[24];
     private GUI_Player[] player = new GUI_Player[4];
     private GUI_Car[] car = new GUI_Car[4];
+    private int moves;
     private Color[] colors = {Color.black,Color.blue,Color.red,Color.yellow};
     private GUI_Car.Type[] type = {GUI_Car.Type.CAR,GUI_Car.Type.RACECAR,GUI_Car.Type.UFO,GUI_Car.Type.TRACTOR};
     GUI_Ownable o = (GUI_Ownable) fields[5];
@@ -151,6 +152,17 @@ public class JuniorGui {
 
     public void displayCard(String cardText){
         gui.displayChanceCard(cardText);
+    }
+
+    public int getIntSelection(String options, int max, int min){
+        while(true) {
+            moves = gui.getUserInteger(options);
+            if (moves <= max && moves >= min)
+                return moves;
+            else
+                gui.showMessage("Ugyldigt input");
+
+        }
     }
 
 

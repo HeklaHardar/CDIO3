@@ -1,19 +1,24 @@
 package Game.Model;
 
 
+import Game.View.JuniorGui;
+
 public class Cards {
 
-    //  CardPicker cardnumber = new CardPicker();
     private int move;
     private String cardText;
     private boolean hasExtraMoves = false;
+    private boolean hasOptions = false;
     private int money;
-    //private int counter = 1;
-    // private int card = cardnumber.getInt(counter);
+    private int max;
+    private int min;
+
 
     public Cards() {
 
     }
+
+
 
 
     public void CardPick(int card) {
@@ -31,7 +36,10 @@ public class Cards {
                 //Ryk frem til start
                 break;
             case 3:
-                //Ryk OP TIL 5 felter frem
+                cardText = "Ryk op til \n 5 felter frem.\n Indtast antal felter du vil rykke frem, 1 til 5:";
+                min = 1;
+                max = 5;
+                hasOptions = true;
                 break;
             case 4:
                 //Ryk frem til et orange felt, få det gratis, eller betal husleje hvis det allerede ejes
@@ -109,8 +117,15 @@ public class Cards {
 
     }
     public int extraMoney(){
-
         return money;
-
+    }
+    public boolean isHasOptions(){
+        return hasOptions;
+    }
+    public int max(){
+        return max;
+    }
+    public int min(){
+        return min;
     }
 }

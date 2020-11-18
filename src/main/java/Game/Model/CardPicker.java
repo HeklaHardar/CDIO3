@@ -1,5 +1,7 @@
 package Game.Model;
 
+import Game.View.JuniorGui;
+
 public class CardPicker {
 
     private int random1;
@@ -31,11 +33,8 @@ public class CardPicker {
 
     public void DrawCard(){
         System.out.println(" ");
-
-        //Blah Blah noget med at trække et kort fra en anden klasse her
-
         first = cards[0];
-        card.CardPick(Counter);
+        card.CardPick(3);
         for (int i = 0; i < cards.length - 1;i++)
             cards[i] = cards[i+1];
         cards[cards.length - 1] = first;
@@ -48,6 +47,8 @@ public class CardPicker {
     }
 
 
+
+
     public String Card(){
         return card.cardToString();
     }
@@ -58,15 +59,22 @@ public class CardPicker {
             return 0;
     }
     public boolean hasExtraMoves(){
-
         return card.booleanToString();
-
     }
     public int cardMoney(){
-
         return card.extraMoney();
-
     }
+    public boolean hasOptions(){
+        return card.isHasOptions();
+    }
+
+    public int max(){
+        return card.max();
+    }
+    public int min (){
+        return card.min();
+    }
+
 
 
 }
