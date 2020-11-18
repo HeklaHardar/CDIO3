@@ -143,7 +143,6 @@ public class JuniorGui {
 
     public void landOnField(int currentPlayer, int currentField, String playerName, int ownable, int[]ownedfields){
         GUI_Field field = gui.getFields()[currentField];
-        System.out.println(ownedfields[currentField]);
         if(ownable == 1 && ownedfields[currentField] == 0) {
             GUI_Ownable o = (GUI_Ownable) field;
             o.setBorder(colors[currentPlayer]);

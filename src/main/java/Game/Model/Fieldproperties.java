@@ -5,18 +5,19 @@ public class Fieldproperties {
     private int position;
     private int owningStatus = 1;
     private int[] ownedFields = new int[24];
+    private boolean setOwnedStatus = false;
     private String color;
     private boolean drawCard = false;
     private boolean inPrison = false;
 
 
     //owningStatus: 1 = ownable, 2 = owned, 3 = not ownable
-    public void Fieldproperties(int position, int player){
+    public void Fieldproperties(int position){
         this.position = position;
         switch (position){
             case 1:
             case 2:
-                ownedFields[position] = player;
+                setOwnedStatus = true;
                 this.value = 1;
                 this.owningStatus = 1;
                 this.color = "Green";
@@ -31,7 +32,7 @@ public class Fieldproperties {
                 break;
             case 4:
             case 5:
-                ownedFields[position] = player;
+                setOwnedStatus = true;
                 this.value = 1;
                 this.owningStatus = 1;
                 this.color = "Cyan";
@@ -43,28 +44,28 @@ public class Fieldproperties {
                 break;
             case 7:
             case 8:
-                ownedFields[position] = player;
+                setOwnedStatus = true;
                 this.value = 2;
                 this.owningStatus = 1;
                 this.color = "Pink";
                 break;
             case 10:
             case 11:
-                ownedFields[position] = player;
+                setOwnedStatus = true;
                 this.value = 2;
                 this.owningStatus = 1;
                 this.color = "Yellow";
                 break;
             case 13:
             case 14:
-                ownedFields[position] = player;
+                setOwnedStatus = true;
                 this.value = 3;
                 this.owningStatus = 1;
                 this.color = "Red";
                 break;
             case 16:
             case 17:
-                ownedFields[position] = player;
+                setOwnedStatus = true;
                 this.value = 3;
                 this.owningStatus = 1;
                 this.color = "Yellow";
@@ -75,14 +76,14 @@ public class Fieldproperties {
                 break;
             case 19:
             case 20:
-                ownedFields[position] = player;
+                setOwnedStatus = true;
                 this.value = 4;
                 this.owningStatus = 1;
                 this.color = "Green";
                 break;
             case 22:
             case 23:
-                ownedFields[position] = player;
+                setOwnedStatus = true;
                 this.value = 5;
                 this.owningStatus = 1;
                 this.color = "Blue";
@@ -90,6 +91,7 @@ public class Fieldproperties {
 
 
         }
+
 
 
     }
@@ -115,5 +117,13 @@ public class Fieldproperties {
 
     public int[] getOwnedFields() {
         return ownedFields;
+    }
+
+    public void setOwnedFields(int[] ownedFields, int position, int player) {
+        this.ownedFields[position] = player+1;
+    }
+
+    public boolean isSetOwnedStatus() {
+        return setOwnedStatus;
     }
 }

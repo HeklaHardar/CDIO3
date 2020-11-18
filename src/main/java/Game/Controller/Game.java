@@ -37,9 +37,10 @@ public class Game {
             for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
                 die.roll();
                 juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
-                properties.Fieldproperties(player[i].currentPosition(), i);
+                properties.Fieldproperties(player[i].currentPosition());
                 juniorGui.updateGuiBalance(i, player[i].playerBalance());
                 juniorGui.landOnField(i,player[i].currentPosition(),player[i].playerString(),properties.getOwningStatus(), properties.getOwnedFields());
+                properties.setOwnedFields(properties.getOwnedFields(),player[i].currentPosition(),i);
             }
         }
 
