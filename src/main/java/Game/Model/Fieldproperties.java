@@ -27,6 +27,7 @@ public class Fieldproperties {
             case 9:
             case 15:
             case 21:
+                this.value = 0;
                 this.owningStatus = 3;
                 this.drawCard = true;
                 break;
@@ -40,6 +41,7 @@ public class Fieldproperties {
             case 6:
             case 12:
             case 0:
+                this.value = 0;
                 this.owningStatus = 3;
                 break;
             case 7:
@@ -73,6 +75,7 @@ public class Fieldproperties {
             case 18:
                 this.owningStatus = 3;
                 this.inPrison = true;
+                this.value = 0;
                 break;
             case 19:
             case 20:

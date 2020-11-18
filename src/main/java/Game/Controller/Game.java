@@ -38,6 +38,12 @@ public class Game {
                 die.roll();
                 juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
                 properties.Fieldproperties(player[i].currentPosition());
+                if(properties.getOwnedFields()[player[i].currentPosition()] != i+1){
+                    player[i].playerBalanceUpdate(0-properties.getValue());
+                    if(properties.getOwnedFields()[player[i].currentPosition()]!=0) {
+                        player[properties.getOwnedFields()[player[i].currentPosition()]-1].playerBalanceUpdate(properties.getValue());
+                    }
+                }
                 juniorGui.updateGuiBalance(i, player[i].playerBalance());
                 juniorGui.landOnField(i,player[i].currentPosition(),player[i].playerString(),properties.getOwningStatus(), properties.getOwnedFields());
                 properties.setOwnedFields(properties.getOwnedFields(),player[i].currentPosition(),i);
