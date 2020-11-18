@@ -1,10 +1,6 @@
-package Game;
+package Game.Model;
 
-import gui_fields.GUI_Player;
-import gui_main.GUI;
-import Game.JuniorGui;
-
-import java.util.Scanner;
+import Game.View.JuniorGui;
 
 public class Menu {
 

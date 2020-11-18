@@ -1,4 +1,4 @@
-package Game;
+package Game.Model;
 
 public class CurrentPlayer {
     private int min = 0;

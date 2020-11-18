@@ -1,4 +1,4 @@
-package Game;
+package Game.View;
 
 import gui_fields.*;
 import gui_main.GUI;
@@ -143,6 +143,7 @@ public class JuniorGui {
 
     public void buyField(int currentPlayer, int currentField, String playerName){
         GUI_Field field = gui.getFields()[currentField];
+
         GUI_Ownable o = (GUI_Ownable) field;
         o.setBorder(colors[currentPlayer]);
         o.setOwnerName(playerName);

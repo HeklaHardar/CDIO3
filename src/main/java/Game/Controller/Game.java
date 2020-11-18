@@ -1,6 +1,10 @@
-package Game;
+package Game.Controller;
 
-import java.util.Scanner;
+import Game.Model.CardPicker;
+import Game.Model.Die;
+import Game.Model.Menu;
+import Game.Model.Player;
+import Game.View.JuniorGui;
 
 public class Game {
 
@@ -37,7 +41,7 @@ public class Game {
                 juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
                 juniorGui.updateGuiBalance(i, player[i].playerBalance());
 
-                //juniorGui.buyField(i,player[i].currentPosition(),player[i].playerString());
+                juniorGui.buyField(i,player[i].currentPosition(),player[i].playerString());
             }
         }
 

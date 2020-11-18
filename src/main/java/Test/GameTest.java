@@ -1,6 +1,5 @@
 package Test;
-import Game.*;
-import static org.junit.jupiter.api.Assertions.*;
+import Game.Controller.Game;
 
 class GameTest {
 
