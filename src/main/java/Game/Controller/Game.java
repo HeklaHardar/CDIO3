@@ -33,8 +33,9 @@ public class Game {
 
 
         for (int e = 0; e < 1000; e++) {
-            juniorGui.gui.getUserString("tryk enter for at slå");
+
             for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
+                juniorGui.gui.getUserString("tryk enter for at slå");
                 die.roll();
                 juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
                 properties.Fieldproperties(player[i].currentPosition());
@@ -42,6 +43,7 @@ public class Game {
                     player[i].playerBalanceUpdate(0-properties.getValue());
                     if(properties.getOwnedFields()[player[i].currentPosition()]!=0) {
                         player[properties.getOwnedFields()[player[i].currentPosition()]-1].playerBalanceUpdate(properties.getValue());
+                        juniorGui.updateGuiBalance(properties.getOwnedFields()[player[i].currentPosition()]-1, player[properties.getOwnedFields()[player[i].currentPosition()]-1].playerBalance());
                     }
                 }
                 juniorGui.updateGuiBalance(i, player[i].playerBalance());
