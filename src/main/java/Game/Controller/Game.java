@@ -1,9 +1,6 @@
 package Game.Controller;
 
-import Game.Model.CardPicker;
-import Game.Model.Die;
-import Game.Model.Menu;
-import Game.Model.Player;
+import Game.Model.*;
 import Game.View.JuniorGui;
 
 public class Game {
@@ -24,6 +21,7 @@ public class Game {
         Menu menu = new Menu();
         juniorGui.createGui();
         menu.startGame(juniorGui);
+        Fieldproperties properties = new Fieldproperties();
 
 
         for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
@@ -39,9 +37,9 @@ public class Game {
             for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
                 die.roll();
                 juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
+                properties.Fieldproperties(player[i].currentPosition(), i);
                 juniorGui.updateGuiBalance(i, player[i].playerBalance());
-
-                juniorGui.buyField(i,player[i].currentPosition(),player[i].playerString());
+                juniorGui.landOnField(i,player[i].currentPosition(),player[i].playerString(),properties.getOwningStatus(), properties.getOwnedFields());
             }
         }
 

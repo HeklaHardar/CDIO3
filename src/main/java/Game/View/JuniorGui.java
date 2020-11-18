@@ -141,12 +141,15 @@ public class JuniorGui {
         player[i].setBalance(balance);
         }
 
-    public void buyField(int currentPlayer, int currentField, String playerName){
+    public void landOnField(int currentPlayer, int currentField, String playerName, int ownable, int[]ownedfields){
         GUI_Field field = gui.getFields()[currentField];
-
-        GUI_Ownable o = (GUI_Ownable) field;
-        o.setBorder(colors[currentPlayer]);
-        o.setOwnerName(playerName);
+        System.out.println(ownedfields[currentField]);
+        if(ownable == 1 && ownedfields[currentField] == 0) {
+            GUI_Ownable o = (GUI_Ownable) field;
+            o.setBorder(colors[currentPlayer]);
+            o.setOwnerName(playerName);
+        }
+        else return;
     }
 
 

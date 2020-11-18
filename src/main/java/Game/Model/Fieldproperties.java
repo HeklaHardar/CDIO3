@@ -3,101 +3,90 @@ package Game.Model;
 public class Fieldproperties {
     private int value;
     private int position;
-    private int owningStatus;
+    private int owningStatus = 1;
+    private int[] ownedFields = new int[24];
     private String color;
     private boolean drawCard = false;
     private boolean inPrison = false;
 
 
     //owningStatus: 1 = ownable, 2 = owned, 3 = not ownable
-    public Fieldproperties(int position){
+    public void Fieldproperties(int position, int player){
         this.position = position;
         switch (position){
             case 1:
-                this.value = 1;
-                this.owningStatus = 1;
-                this.color = "Green";
             case 2:
+                ownedFields[position] = player;
                 this.value = 1;
                 this.owningStatus = 1;
                 this.color = "Green";
+
+                break;
             case 3:
-                this.owningStatus = 3;
-                this.drawCard = true;
-            case 4:
-                this.value = 1;
-                this.owningStatus = 1;
-                this.color = "Cyan";
-            case 5:
-                this.value = 1;
-                this.owningStatus = 1;
-                this.color = "Cyan";
-            case 6:
-                this.owningStatus = 3;
-            case 7:
-                this.value = 2;
-                this.owningStatus = 1;
-                this.color = "Pink";
-            case 8:
-                this.value = 2;
-                this.owningStatus = 1;
-                this.color = "Pink";
             case 9:
-                this.owningStatus = 3;
-                this.drawCard = true;
-            case 10:
-                this.value = 2;
-                this.owningStatus = 1;
-                this.color = "Yellow";
-            case 11:
-                this.value = 2;
-                this.owningStatus = 1;
-                this.color = "Yellow";
-            case 12:
-                this.owningStatus = 3;
-            case 13:
-                this.value = 3;
-                this.owningStatus = 1;
-                this.color = "Red";
-            case 14:
-                this.value = 3;
-                this.owningStatus = 1;
-                this.color = "Red";
             case 15:
-                this.owningStatus = 3;
-                this.drawCard = true;
-            case 16:
-                this.value = 3;
-                this.owningStatus = 1;
-                this.color = "Yellow";
-            case 17:
-                this.value = 3;
-                this.owningStatus = 1;
-                this.color = "Yellow";
-            case 18:
-                this.owningStatus = 3;
-                this.inPrison = true;
-            case 19:
-                this.value = 4;
-                this.owningStatus = 1;
-                this.color = "Green";
-            case 20:
-                this.value = 4;
-                this.owningStatus = 1;
-                this.color = "Green";
             case 21:
                 this.owningStatus = 3;
                 this.drawCard = true;
-            case 22:
-                this.value = 5;
+                break;
+            case 4:
+            case 5:
+                ownedFields[position] = player;
+                this.value = 1;
                 this.owningStatus = 1;
-                this.color = "Blue";
-            case 23:
-                this.value = 5;
-                this.owningStatus = 1;
-                this.color = "Blue";
-            case 24:
+                this.color = "Cyan";
+                break;
+            case 6:
+            case 12:
+            case 0:
                 this.owningStatus = 3;
+                break;
+            case 7:
+            case 8:
+                ownedFields[position] = player;
+                this.value = 2;
+                this.owningStatus = 1;
+                this.color = "Pink";
+                break;
+            case 10:
+            case 11:
+                ownedFields[position] = player;
+                this.value = 2;
+                this.owningStatus = 1;
+                this.color = "Yellow";
+                break;
+            case 13:
+            case 14:
+                ownedFields[position] = player;
+                this.value = 3;
+                this.owningStatus = 1;
+                this.color = "Red";
+                break;
+            case 16:
+            case 17:
+                ownedFields[position] = player;
+                this.value = 3;
+                this.owningStatus = 1;
+                this.color = "Yellow";
+                break;
+            case 18:
+                this.owningStatus = 3;
+                this.inPrison = true;
+                break;
+            case 19:
+            case 20:
+                ownedFields[position] = player;
+                this.value = 4;
+                this.owningStatus = 1;
+                this.color = "Green";
+                break;
+            case 22:
+            case 23:
+                ownedFields[position] = player;
+                this.value = 5;
+                this.owningStatus = 1;
+                this.color = "Blue";
+                break;
 
 
         }
@@ -122,5 +111,9 @@ public class Fieldproperties {
 
     public boolean isInPrison() {
         return inPrison;
+    }
+
+    public int[] getOwnedFields() {
+        return ownedFields;
     }
 }
