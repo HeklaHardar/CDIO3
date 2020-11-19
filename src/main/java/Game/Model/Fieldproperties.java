@@ -5,6 +5,8 @@ public class Fieldproperties {
     private int position;
     private int owningStatus = 1;
     private int[] ownedFields = new int[24];
+    private String[] fieldColors = {"","Green","Green","","Cyan","Cyan","","Pink","Pink","","Yellow","Yellow" +
+            "","Red","Red","","Yellow","Yellow","","Green","Green","","Blue","Blue"};
     private String color;
     private boolean drawCard = false;
     private boolean inPrison = false;
@@ -89,7 +91,14 @@ public class Fieldproperties {
 
 
     }
-    public int getValue() {
+    public int getValue(int position) {
+        for (int i=0 ; i < 24; i++){
+            if(fieldColors[i] == fieldColors[position]){
+                if(ownedFields[i] == ownedFields[position]){
+                    value = value*2;
+                }
+            }
+        }
         return value;
     }
 
@@ -97,8 +106,8 @@ public class Fieldproperties {
         return owningStatus;
     }
 
-    public String getColor() {
-        return color;
+    public String[] getColors() {
+        return fieldColors;
     }
 
     public boolean isDrawCard() {

@@ -45,10 +45,10 @@ public class Game {
                 //Subtracts money from the currentplayer and gives money to the player owning the field
                 properties.Fieldproperties(player[i].currentPosition());
                 if (properties.getOwnedFields()[player[i].currentPosition()] != i + 1) {
-                    player[i].playerBalanceUpdate(0 - properties.getValue());
+                    player[i].playerBalanceUpdate(0 - properties.getValue(player[i].currentPosition()));
 
                     if (properties.getOwnedFields()[player[i].currentPosition()] != 0) {
-                        player[properties.getOwnedFields()[player[i].currentPosition()] - 1].playerBalanceUpdate(properties.getValue());
+                        player[properties.getOwnedFields()[player[i].currentPosition()] - 1].playerBalanceUpdate(properties.getValue(player[i].currentPosition()));
                         juniorGui.updateGuiBalance(properties.getOwnedFields()[player[i].currentPosition()] - 1, player[properties.getOwnedFields()[player[i].currentPosition()] - 1].playerBalance());
                     }
                 }
