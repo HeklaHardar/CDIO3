@@ -41,14 +41,18 @@ public class Game {
                 //checks if the player is in prison and releases him if he is.
                 player[i].releaseFromPrison(player[i].isInPrison());
                 //Moves the car on the GUI and checks if player is over start.
-                juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
+                juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(4));
                 //Subtracts money from the currentplayer and gives money to the player owning the field
+
                 properties.Fieldproperties(player[i].currentPosition());
                 if (properties.getOwnedFields()[player[i].currentPosition()] != i + 1) {
-                    player[i].playerBalanceUpdate(0 - properties.getValue(player[i].currentPosition()));
+                        player[i].playerBalanceUpdate(0 - properties.calculateValue(player[i].currentPosition()));
 
-                    if (properties.getOwnedFields()[player[i].currentPosition()] != 0) {
-                        player[properties.getOwnedFields()[player[i].currentPosition()] - 1].playerBalanceUpdate(properties.getValue(player[i].currentPosition()));
+                        if (properties.getOwnedFields()[player[i].currentPosition()] != 0) {
+
+                        player[properties.getOwnedFields()[player[i].currentPosition()] - 1].
+                                playerBalanceUpdate(properties.getValue());
+
                         juniorGui.updateGuiBalance(properties.getOwnedFields()[player[i].currentPosition()] - 1, player[properties.getOwnedFields()[player[i].currentPosition()] - 1].playerBalance());
                     }
                 }

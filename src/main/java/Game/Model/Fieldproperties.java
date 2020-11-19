@@ -91,14 +91,17 @@ public class Fieldproperties {
 
 
     }
-    public int getValue(int position) {
-        for (int i=0 ; i < 24; i++){
-            if(fieldColors[i] == fieldColors[position]){
-                if(ownedFields[i] == ownedFields[position]){
+    public int calculateValue(int position) {
+        for (int i=0 ; i < 23; i++){
+            if((i!=position) && fieldColors[i] == fieldColors[position] &&
+                    (ownedFields[i] == ownedFields[position] && ownedFields[i]!=0)){
                     value = value*2;
-                }
             }
         }
+        return value;
+    }
+
+    public int getValue() {
         return value;
     }
 
@@ -128,7 +131,9 @@ public class Fieldproperties {
     }
 
     public void setOwnedFields(int[] ownedFields, int position, int player) {
-        this.ownedFields[position] = player+1;
+        if(this.ownedFields[position]==0) {
+            this.ownedFields[position] = player + 1;
+        }
     }
 
 }
