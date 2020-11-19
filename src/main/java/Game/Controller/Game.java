@@ -10,7 +10,6 @@ public class Game {
     private Player[] player = new Player[4];
     boolean isWinnerWinnerChickenDinner = false;
 
-
     public void Game() {
 
 
@@ -66,31 +65,30 @@ public class Game {
                     player[i].setInPrison();
                     properties.resetPrisonStatus();
                 }
-                for(int k=0; k > menu.getPlayerAmount(); k++) {
-                    if (player[k].playerBalance() < 0) {
+
+                    if (player[i].playerBalance() < 0) {
+
                         int[] balances = new int[menu.getPlayerAmount()];
-                        for(int j=0; j>balances.length; j++) {
-                            int money = player[k].playerBalance();
+                        for(int j=0; j<
+                                balances.length; j++) {
+                            int money = player[j].playerBalance();
                             balances[j] = money;
-
-
                         }
                         int temporary=0;
                         int balanceid = 0;
-                        int finalbalanceid;
-
-
+                        int finalbalanceid = 0;
 
                         for(int balance:balances){
-                            if(temporary>balance){
+                            if(temporary<balance){
                                 temporary = balance;
+                                finalbalanceid = balanceid;
 
                             }
-                            System.out.println();
+                                balanceid+=1;
                         }
+                            System.out.println("The winner is: " + player[finalbalanceid].playerString() + " With " + player[finalbalanceid].playerBalance() + "Points");
                         isWinnerWinnerChickenDinner = true;
-
-                    }
+                        break;
                 }
             }
         }

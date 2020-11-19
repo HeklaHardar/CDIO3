@@ -19,8 +19,8 @@ class GameTest {
 
     @org.junit.jupiter.api.Test
     void gameend() {
-
         Game game = new Game();
+
         game.Game();
     }
 
