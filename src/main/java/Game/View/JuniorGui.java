@@ -26,7 +26,7 @@ public class JuniorGui {
     public JuniorGui(){
             // Laver array
             //GUI_Field[] fields = new GUI_Field[24];
-            Color[] fieldColors = {Color.GREEN,Color.BLUE,Color.PINK,Color.YELLOW,Color.RED, Color.cyan, new Color(34,139,34)};
+            Color[] fieldColors = {Color.GREEN,Color.BLUE,Color.PINK,Color.YELLOW,Color.RED, Color.cyan, new Color(34,139,34), Color.ORANGE};
             String[] fieldTitles = {"Burgerbaren","Pizzariaet","","Slikbutikken","Iskiosken","","Museet","Biblioteket","","Skaterparken",
                     "Svømmingpoolen","", "Spillehallen", "Biografen","","Legetøjsbutikken","Dyrehandlen","","Bowlinghallen","Zoo","","Vandlandet","Strandpromenaden",""};
 
@@ -82,7 +82,7 @@ public class JuniorGui {
                         fields[i].setSubText("Price: 2M");
                     }
                     else if(9<i&i<12){
-                        fields[i].setBackGroundColor(fieldColors[3]);
+                        fields[i].setBackGroundColor(fieldColors[7]);
                         fields[i].setDescription(fieldTitles[i-1]);
                         fields[i].setSubText("Price: 2M");
                     }
