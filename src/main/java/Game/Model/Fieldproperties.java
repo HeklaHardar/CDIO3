@@ -5,7 +5,7 @@ public class Fieldproperties {
     private int position;
     private int owningStatus = 1;
     private int[] ownedFields = new int[24];
-    private String[] fieldColors = {"","Green","Green","","Cyan","Cyan","","Pink","Pink","","Yellow","Yellow" +
+    private String[] fieldColors = {"","Green","Green","","Cyan","Cyan","","Pink","Pink","","Orange","Orange" +
             "","Red","Red","","Yellow","Yellow","","Green","Green","","Blue","Blue"};
     private String color;
     private boolean drawCard = false;
@@ -53,7 +53,7 @@ public class Fieldproperties {
             case 11:
                 this.value = 2;
                 this.owningStatus = 1;
-                this.color = "Yellow";
+                this.color = "Orange";
                 break;
             case 13:
             case 14:
