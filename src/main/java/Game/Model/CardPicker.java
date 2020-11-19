@@ -34,7 +34,7 @@ public class CardPicker {
     public void DrawCard(){
         System.out.println(" ");
         first = cards[0];
-        card.CardPick(10);
+        card.CardPick(15);
 
         for (int i = 0; i < cards.length - 1;i++)
             cards[i] = cards[i+1];
@@ -84,8 +84,13 @@ public class CardPicker {
     public boolean birthday(){
         return card.isHasBirthday();
     }
+    public String[] possibleFields(){return card.getPossibleFields();}
     public String[] fiveMoves(){
         return card.getFiveMoves();
+    }
+    public boolean hasStringOptions(){return card.isHasStringOptions();}
+    public boolean ishasMoveOrCard(){
+        return card.isMoveOrCard();
     }
 
 

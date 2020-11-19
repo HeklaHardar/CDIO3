@@ -18,6 +18,7 @@ public class JuniorGui {
     private Color[] colors = {Color.black, Color.blue, Color.red, Color.yellow};
     private GUI_Car.Type[] type = {GUI_Car.Type.CAR, GUI_Car.Type.RACECAR, GUI_Car.Type.UFO, GUI_Car.Type.TRACTOR};
     GUI_Ownable o = (GUI_Ownable) fields[5];
+    private String stringChoice;
 
 
     public JuniorGui() {
@@ -151,6 +152,58 @@ public class JuniorGui {
             else
                 gui.showMessage("Ugyldigt input");
         }
+    }
+    public int getStringSelection(String[] options){
+
+        stringChoice = gui.getUserSelection("Vælg hvor du vil rykke hen: ", options);
+        switch (stringChoice) {
+            case "Skaterparken":
+                return 10;
+            case "Swimmingpoolen":
+                return 11;
+            case "Slikbuttiken":
+                return 4;
+            case "Iskiosken":
+                return 5;
+            case "Strandpromenaden":
+                return 23;
+            case "Vandlandet":
+                return 22;
+            case "Spillehallen":
+                return 13;
+            case "Biografen":
+                return 14;
+            case "Museet":
+                return 7;
+            case "Biblioteket":
+                return 8;
+            case "Burgerbaren":
+                return 1;
+            case "Pizzariaet":
+                return 2;
+            case "Legetøjsbutikken":
+                return 16;
+            case "Dyrehandlen":
+                return 17;
+            case "Bowlinghallen":
+                return 19;
+            case "Zoo":
+                return 20;
+        }
+        return 0;
+
+
+    }
+
+    public int getMoveOrCard(){
+        stringChoice = gui.getUserSelection("Vælg hvad du vil: ", "Træk et nyt kort", "Gå et felt frem");
+        switch (stringChoice){
+            case "Træk et nyt kort":
+                return 1;
+            case "Gå et felt frem":
+                return 2;
+        }
+        return 0;
     }
 }
 

@@ -55,6 +55,10 @@ public class Player {
     public int currentPosition(){
         return position;
     }
+    public int setPosition(int newPosition){
+        position = newPosition;
+        return position;
+    }
     public int updatePosition(int die){
         position += die;
         if(die == 900) {

@@ -15,7 +15,11 @@ public class Cards {
     private int min;
     private boolean hasPrisonCard;
     private boolean isBirthday = false;
-
+    private boolean hasStringOptions = false;
+    private boolean has4StringOptions = false;
+    private String[] possibleFields = new String[2];
+    private String[] possibleFields2 = new String[4];
+    private boolean moveOrCard = false;
 
     public Cards() {
 
@@ -28,6 +32,9 @@ public class Cards {
         money = 0;
         hasPrisonCard = false;
         isBirthday = false;
+        hasStringOptions = false;
+        has4StringOptions = false;
+        moveOrCard = false;
 
     }
 
@@ -54,9 +61,17 @@ public class Cards {
                 break;
             case 4:
                 //Ryk frem til et orange felt, få det gratis, eller betal husleje hvis det allerede ejes
+                cardText = "GRATIS FELT! \n ryk frem til et orange felt.\n Hvis det er ledigt, får du det GRATIS!\n Ellers skal du betale leje til ejeren.";
+                possibleFields[0] = "Skaterparken";
+                possibleFields[1] = "Swimmingpoolen";
+                hasStringOptions = true;
                 break;
             case 5:
                 //Ryk 1 felt frem, eller tag et chancekort mere.
+                cardText = "Ryk 1 \n felt frem, eller\n tag et \n chancekort mere.";
+                move = 1;
+
+                moveOrCard = true;
                 break;
             case 6:
                 //Samme som case 1 men for skibet
@@ -68,9 +83,20 @@ public class Cards {
                 break;
             case 8:
                 //Samme som case 4 men med orange eller grøn
+                cardText = "GRATIS FELT! \n ryk frem til et orange eller grøn felt.\n Hvis det er ledigt, får du det GRATIS!\n Ellers skal du betale leje til ejeren.";
+
+                possibleFields2[0] = "Skaterparken";
+                possibleFields2[1] = "Swimmingpoolen";
+                possibleFields2[2] = "Bowlinghallen";
+                possibleFields2[3] = "Zoo";
+                has4StringOptions = true;
                 break;
             case 9:
                 //Gratis lyseblåt felt
+                cardText = "GRATIS FELT! \n ryk frem til et lyseblåt felt.\n Hvis det er ledigt, får du det GRATIS!\n Ellers skal du betale leje til ejeren.";
+                possibleFields[0] = "Slikbuttiken";
+                possibleFields[1] = "Iskiosken";
+                hasStringOptions = true;
                 break;
             case 10:
                 cardText = "Du løslades uden omkostninger. \n Behold dette kort, indtil du får brug for det.";
@@ -94,6 +120,14 @@ public class Cards {
                 break;
             case 15:
                 //Gratis pink eller mørkeblåt felt
+                cardText = "GRATIS FELT! \n ryk frem til et pink eller mørkeblåt felt.\n Hvis det er ledigt, får du det GRATIS!\n Ellers skal du betale leje til ejeren.";
+
+                possibleFields2[0] = "Museet";
+                possibleFields2[1] = "Biblioteket";
+                possibleFields2[2] = "Vandlandet";
+                possibleFields2[3] = "Strandpromenaden";
+                has4StringOptions = true;
+
                 break;
             case 16:
                 cardText = "Du har lavet\n alle dine lektier!\nMODTAG 2 MONOPOLY PENGE\n fra banken";
@@ -101,6 +135,9 @@ public class Cards {
                 break;
             case 17:
                 //Gratis rødt felt
+                cardText = "GRATIS FELT! \n ryk frem til et rødt felt.\n Hvis det er ledigt, får du det GRATIS!\n Ellers skal du betale leje til ejeren.";
+                possibleFields[0] = "Spillehallen";
+                possibleFields[1] = "Biografen";
                 break;
             case 18:
                 cardText = "GRATIS FELT! \n Ryk frem til skaterparken\n for at lave det perfekte grind! \nHvis ingen ejer den \n får du den GRATIS! \n Ellers skal du BETALE \n leje til ejeren.";
@@ -109,9 +146,23 @@ public class Cards {
                 break;
             case 19:
                 //gratis lyseblåt eller rødt
+                cardText = "GRATIS FELT! \n ryk frem til et lyseblåt eller rødt felt.\n Hvis det er ledigt, får du det GRATIS!\n Ellers skal du betale leje til ejeren.";
+
+                possibleFields2[0] = "Slikbuttiken";
+                possibleFields2[1] = "Iskiosken";
+                possibleFields2[2] = "Spillehallen";
+                possibleFields2[3] = "Biografen";
+                has4StringOptions = true;
                 break;
             case 20:
                 //gratis brunt eller gult
+                cardText = "GRATIS FELT! \n ryk frem til et brunt eller gult felt.\n Hvis det er ledigt, får du det GRATIS!\n Ellers skal du betale leje til ejeren.";
+
+                possibleFields2[1] = "Pizzariaet";
+                possibleFields2[0] = "Burgerbaren";
+                possibleFields2[2] = "Legetøjsbutikken";
+                possibleFields2[3] = "Dyrehandlen";
+                has4StringOptions = true;
                 break;
         }
     }
@@ -119,7 +170,6 @@ public class Cards {
     public int extraFields() {
         return move;
     }
-
     public String cardToString() {
 
         return cardText;
@@ -150,5 +200,20 @@ public class Cards {
     }
     public String[] getFiveMoves(){
         return fiveMoves;
+    }
+    public String[] getPossibleFields(){
+        if(hasStringOptions)
+            return possibleFields;
+        else
+            return possibleFields2;
+    }
+    public boolean isHasStringOptions(){
+        if(hasStringOptions)
+            return hasStringOptions;
+        else
+            return has4StringOptions;
+    }
+    public boolean isMoveOrCard(){
+        return moveOrCard;
     }
 }

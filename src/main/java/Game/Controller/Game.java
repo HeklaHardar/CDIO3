@@ -43,7 +43,7 @@ public class Game {
                 //checks if the player is in prison and releases him if he is.
                 player[i].releaseFromPrison(player[i].isInPrison());
                 //Moves the car on the GUI and checks if player is over start.
-                juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(4));
+                juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(3));
                 //Subtracts money from the currentplayer and gives money to the player owning the field
 
                 properties.Fieldproperties(player[i].currentPosition());
@@ -84,6 +84,15 @@ public class Game {
                         }
                         player[i].playerBalanceUpdate(menu.getPlayerAmount());
                         juniorGui.updateGuiBalance(i,player[i].playerBalance());
+                    }
+                    if(cardPicker.hasStringOptions()){
+                        juniorGui.moveCars(i, player[i].currentPosition(), player[i].setPosition(juniorGui.getStringSelection(cardPicker.possibleFields())));
+                    }
+                    if(cardPicker.ishasMoveOrCard()){
+
+                       // if(juniorGui.getMoveOrCard() == 1)
+
+
                     }
                     cardPicker.resetCardStats();
                 }
