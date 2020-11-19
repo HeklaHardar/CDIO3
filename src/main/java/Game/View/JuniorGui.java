@@ -113,7 +113,6 @@ public class JuniorGui {
                 }
             }
 
-           //this.gui = new GUI(fields);
 
     }
 
@@ -135,6 +134,10 @@ public class JuniorGui {
     public void moveCars(int currentPlayer,int currentPosition, int newPosition){
         fields[currentPosition].setCar(player[currentPlayer],false);
         fields[newPosition].setCar(player[currentPlayer],true);
+        }
+        public void moveToPrison(int currentPlayer, int currentPosition){
+            fields[currentPosition].setCar(player[currentPlayer],false);
+            fields[6].setCar(player[currentPlayer],true);
         }
 
     public void updateGuiBalance(int i ,int balance){

@@ -58,7 +58,11 @@ public class Game {
 
                 properties.setOwnedFields(properties.getOwnedFields(), player[i].currentPosition(), i);
 
-                player[i].setInPrison(properties.g);
+                if (properties.isInPrison()) {
+                    juniorGui.moveToPrison(i,player[i].currentPosition());
+                    player[i].setInPrison();
+                    properties.resetPrisonStatus();
+                }
             }
         }
 

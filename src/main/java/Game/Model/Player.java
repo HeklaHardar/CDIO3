@@ -28,11 +28,9 @@ public class Player {
     public void starterScore(int players){account.initializeScore(players);}
 
 
-    public void setInPrison(boolean setInPrison){
-        if(setInPrison) {
+    public void setInPrison(){
             inPrison = true;
-            position = 18;
-        }
+            position = 6;
     }
     public boolean isInPrison(){
         return inPrison;

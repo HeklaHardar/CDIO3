@@ -109,6 +109,11 @@ public class Fieldproperties {
         return inPrison;
     }
 
+    public void resetPrisonStatus(){
+        this.inPrison = false;
+
+    }
+
     public int[] getOwnedFields() {
         return ownedFields;
     }
@@ -117,7 +122,4 @@ public class Fieldproperties {
         this.ownedFields[position] = player+1;
     }
 
-    public boolean is() {
-        return ;
-    }
 }
