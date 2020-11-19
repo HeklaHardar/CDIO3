@@ -51,7 +51,7 @@ public class Player {
         return prisonCard;
     }
     // Check where player is currently
-    public int currentPosition(){
+    public int currentPosition(int i, int i1){
         return position;
     }
     // Move player with die
