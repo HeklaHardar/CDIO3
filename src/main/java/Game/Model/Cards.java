@@ -12,9 +12,9 @@ public class Cards {
     private int money;
     private int max;
     private int min;
-    private boolean prisonCard;
-    private boolean skaterPark = false;
-    private boolean strandPromenaden = false;
+    private boolean hasPrisonCard;
+    private boolean isBirthday = false;
+
 
     public Cards() {
 
@@ -25,6 +25,8 @@ public class Cards {
         hasExtraMoves = false;
         hasintOptions = false;
         money = 0;
+        hasPrisonCard = false;
+        isBirthday = false;
 
     }
 
@@ -70,13 +72,13 @@ public class Cards {
                 break;
             case 10:
                 cardText = "Du løslades uden omkostninger. \n Behold dette kort, indtil du får brug for det.";
+                hasPrisonCard = true;
                 //Løslades gratis. behold kortet til det skal bruges.
                 break;
             case 11:
                 cardText = "Ryk frem til \n Strandpromenaden.";
                 move = 800;
                 hasExtraMoves = true;
-                //Ryk frem til strandpromenaden
                 break;
             case 12:
                 //Katten kortet
@@ -86,7 +88,7 @@ public class Cards {
                 break;
             case 14:
                 cardText = "Det er din fødselsdag! \n Alle giver dig 1 monopoly penge \n TILLYKE MED\n FØDSELSDAGEN";
-                //Alle giver dig 1 penge
+                isBirthday = true;
                 break;
             case 15:
                 //Gratis pink eller mørkeblåt felt
@@ -94,7 +96,6 @@ public class Cards {
             case 16:
                 cardText = "Du har lavet\n alle dine lektier!\nMODTAG 2 MONOPOLY PENGE\n fra banken";
                 money = 2;
-                //Modtag 2 penge
                 break;
             case 17:
                 //Gratis rødt felt
@@ -138,5 +139,11 @@ public class Cards {
     }
     public int min(){
         return min;
+    }
+    public boolean isHasPrisonCard() {
+        return hasPrisonCard;
+    }
+    public boolean isHasBirthday(){
+        return isBirthday;
     }
 }

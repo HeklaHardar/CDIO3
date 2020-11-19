@@ -38,11 +38,15 @@ public class Player {
     public void releaseFromPrison(boolean inPrison){
         if(inPrison && prisonCard){
             this.inPrison = false;
+            prisonCard = false;
         }
         else if(inPrison) {
             account.updateScore(-1);
             this.inPrison = false;
         }
+    }
+    public void updatePrisonCard(boolean Card){
+        prisonCard = Card;
     }
 
     public boolean checkPrisonCard(){

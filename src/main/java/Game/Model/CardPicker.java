@@ -34,7 +34,8 @@ public class CardPicker {
     public void DrawCard(){
         System.out.println(" ");
         first = cards[0];
-        card.CardPick(18);
+        card.CardPick(14);
+
         for (int i = 0; i < cards.length - 1;i++)
             cards[i] = cards[i+1];
         cards[cards.length - 1] = first;
@@ -75,9 +76,13 @@ public class CardPicker {
         return card.min();
     }
     public void resetCardStats(){
-
         card.resetStats();
-
+    }
+    public boolean prisonCard(){
+        return card.isHasPrisonCard();
+    }
+    public boolean birthday(){
+        return card.isHasBirthday();
     }
 
 

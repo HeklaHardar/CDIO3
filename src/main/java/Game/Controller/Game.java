@@ -8,6 +8,7 @@ public class Game {
     private String Yngst;
     private String[] Tur = new String[4];
     private Player[] player = new Player[4];
+    private Player currentPlayer;
 
 
     public void Game() {
@@ -42,7 +43,7 @@ public class Game {
                 //checks if the player is in prison and releases him if he is.
                 player[i].releaseFromPrison(player[i].isInPrison());
                 //Moves the car on the GUI and checks if player is over start.
-                juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
+                juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(3));
                 //Subtracts money from the currentplayer and gives money to the player owning the field
                 properties.Fieldproperties(player[i].currentPosition());
                 if (properties.getOwnedFields()[player[i].currentPosition()] != i + 1) {
@@ -69,6 +70,19 @@ public class Game {
                     }
                     player[i].playerBalanceUpdate(cardPicker.cardMoney());
                     juniorGui.updateGuiBalance(i,player[i].playerBalance());
+                    if(cardPicker.prisonCard()){
+                        player[i].updatePrisonCard(true);
+                    }
+                    if(cardPicker.birthday()){
+                        System.out.println("Nu er jeg her");
+                        for(int y = 0; y <= menu.getPlayerAmount() - 1; y++){
+                            System.out.println(y);
+                            player[y].playerBalanceUpdate(-1);
+                            juniorGui.updateGuiBalance(y,player[y].playerBalance());
+                        }
+                        player[i].playerBalanceUpdate(menu.getPlayerAmount());
+                        juniorGui.updateGuiBalance(i,player[i].playerBalance());
+                    }
                     cardPicker.resetCardStats();
                 }
 
