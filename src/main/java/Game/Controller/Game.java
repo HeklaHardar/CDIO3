@@ -66,13 +66,27 @@ public class Game {
                     player[i].setInPrison();
                     properties.resetPrisonStatus();
                 }
-                for(Player somePlayer:player) {
-                    if (somePlayer.playerBalance() < 0) {
-                        int[] balances = new int[player.length];
-                        for(i=0; i>balances.length; i++) {
-                            int money = somePlayer.playerBalance();
-                            balances[i] = money;
+                for(int k=0; k > menu.getPlayerAmount(); k++) {
+                    if (player[k].playerBalance() < 0) {
+                        int[] balances = new int[menu.getPlayerAmount()];
+                        for(int j=0; j>balances.length; j++) {
+                            int money = player[k].playerBalance();
+                            balances[j] = money;
 
+
+                        }
+                        int temporary=0;
+                        int balanceid = 0;
+                        int finalbalanceid;
+
+
+
+                        for(int balance:balances){
+                            if(temporary>balance){
+                                temporary = balance;
+
+                            }
+                            System.out.println();
                         }
                         isWinnerWinnerChickenDinner = true;
 
