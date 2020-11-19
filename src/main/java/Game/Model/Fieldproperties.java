@@ -5,7 +5,7 @@ public class Fieldproperties {
     private int position;
     private int owningStatus = 1;
     private int[] ownedFields = new int[24];
-    private String[] fieldColors = {"","Green","Green","","Cyan","Cyan","","Pink","Pink","","Orange","Orange" +
+    private String[] fieldColors = {"","Green","Green","","Cyan","Cyan","","Pink","Pink","","Orange","Orange",
             "","Red","Red","","Yellow","Yellow","","Green","Green","","Blue","Blue"};
     private String color;
     private boolean drawCard = false;
@@ -92,7 +92,7 @@ public class Fieldproperties {
 
     }
     public int calculateValue(int position) {
-        for (int i=0 ; i < 23; i++){
+        for (int i=0 ; i < 22; i++){
             if((i!=position) && fieldColors[i] == fieldColors[position] &&
                     (ownedFields[i] == ownedFields[position] && ownedFields[i]!=0)){
                     value = value*2;

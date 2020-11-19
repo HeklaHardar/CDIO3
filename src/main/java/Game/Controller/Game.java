@@ -8,6 +8,7 @@ public class Game {
     private String Yngst;
     private String[] Tur = new String[4];
     private Player[] player = new Player[4];
+    boolean isWinnerWinnerChickenDinner = false;
 
 
     public void Game() {
@@ -31,9 +32,7 @@ public class Game {
             //juniorGui.gui.showMessage(player[i].playerString() + " " + player[i].playerBalance());
         }
 
-
-        for (int e = 0; e < 1000; e++) {
-
+        while (isWinnerWinnerChickenDinner == false) {
             for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
                 juniorGui.gui.getUserString("tryk enter for at slå");
                 die.roll();
@@ -66,6 +65,12 @@ public class Game {
                     juniorGui.moveToPrison(i,player[i].currentPosition());
                     player[i].setInPrison();
                     properties.resetPrisonStatus();
+                }
+                for(Player somePlayer:player) {
+                    if (somePlayer.playerBalance() < 0) {
+                        isWinnerWinnerChickenDinner = true;
+
+                    }
                 }
             }
         }
