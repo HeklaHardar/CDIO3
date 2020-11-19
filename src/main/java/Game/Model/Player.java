@@ -43,6 +43,15 @@ public class Player {
             position = 0;
             account.updateScore(2);
         }
+        else if(die == 800){
+            position = 23;
+        }
+        else if(die == 700){
+            if (currentPosition() > 10)
+                account.updateScore(2);
+            position = 10;
+
+        }
         else if(position > 23){
             position = position - 24;
             account.updateScore(2);

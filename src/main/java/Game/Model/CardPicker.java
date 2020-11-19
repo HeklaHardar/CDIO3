@@ -34,7 +34,7 @@ public class CardPicker {
     public void DrawCard(){
         System.out.println(" ");
         first = cards[0];
-        card.CardPick(3);
+        card.CardPick(18);
         for (int i = 0; i < cards.length - 1;i++)
             cards[i] = cards[i+1];
         cards[cards.length - 1] = first;
@@ -64,8 +64,8 @@ public class CardPicker {
     public int cardMoney(){
         return card.extraMoney();
     }
-    public boolean hasOptions(){
-        return card.isHasOptions();
+    public boolean hasintOptions(){
+        return card.isHasintOptions();
     }
 
     public int max(){
@@ -73,6 +73,11 @@ public class CardPicker {
     }
     public int min (){
         return card.min();
+    }
+    public void resetCardStats(){
+
+        card.resetStats();
+
     }
 
 
