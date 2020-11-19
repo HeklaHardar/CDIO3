@@ -10,6 +10,7 @@ public class Cards {
     private boolean hasExtraMoves = false;
     private boolean hasintOptions = false;
     private int money;
+    private String[] fiveMoves = {"1","2","3","4","5"};
     private int max;
     private int min;
     private boolean hasPrisonCard;
@@ -46,8 +47,9 @@ public class Cards {
                 //Ryk frem til start
                 break;
             case 3:
-                cardText = "Ryk op til \n 5 felter frem.\n Indtast antal felter du vil rykke frem, 1 til 5:";
-
+                cardText = "Ryk op til \n 5 felter frem.\n Indtast antal felter du vil rykke, 1 til 5: ";
+                max = 5;
+                min = 1;
                 hasintOptions = true;
                 break;
             case 4:
@@ -145,5 +147,8 @@ public class Cards {
     }
     public boolean isHasBirthday(){
         return isBirthday;
+    }
+    public String[] getFiveMoves(){
+        return fiveMoves;
     }
 }

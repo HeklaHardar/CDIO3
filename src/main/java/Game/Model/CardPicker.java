@@ -34,7 +34,7 @@ public class CardPicker {
     public void DrawCard(){
         System.out.println(" ");
         first = cards[0];
-        card.CardPick(14);
+        card.CardPick(10);
 
         for (int i = 0; i < cards.length - 1;i++)
             cards[i] = cards[i+1];
@@ -83,6 +83,9 @@ public class CardPicker {
     }
     public boolean birthday(){
         return card.isHasBirthday();
+    }
+    public String[] fiveMoves(){
+        return card.getFiveMoves();
     }
 
 
