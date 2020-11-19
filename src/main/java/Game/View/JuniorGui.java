@@ -14,7 +14,7 @@ public class JuniorGui {
     private GUI_Field[] fields = new GUI_Field[24];
     private GUI_Player[] player = new GUI_Player[4];
     private GUI_Car[] car = new GUI_Car[4];
-    private Color[] colors = {Color.black,Color.blue,Color.red,Color.yellow};
+    private Color[] colors = {Color.black,new Color(175, 4, 182),new Color(255, 255, 255),new Color(139, 33, 33)};
     private GUI_Car.Type[] type = {GUI_Car.Type.CAR,GUI_Car.Type.RACECAR,GUI_Car.Type.UFO,GUI_Car.Type.TRACTOR};
     GUI_Ownable o = (GUI_Ownable) fields[5];
 
@@ -129,7 +129,9 @@ public class JuniorGui {
 
         }
 
-
+    public void ShowDie(int DieGui){
+        gui.setDie(DieGui);
+    }
 
     public void moveCars(int currentPlayer,int currentPosition, int newPosition){
         fields[currentPosition].setCar(player[currentPlayer],false);
