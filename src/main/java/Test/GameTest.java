@@ -26,6 +26,8 @@ class GameTest {
         }
         fields.Fieldproperties(4);
         int expected = 2;
+
+
         System.out.println(Arrays.toString(fields.getOwnedFields()));
         assertEquals(expected,fields.calculateValue(4));
         System.out.println(fields.getValue());
