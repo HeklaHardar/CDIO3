@@ -68,6 +68,12 @@ public class Game {
                 }
                 for(Player somePlayer:player) {
                     if (somePlayer.playerBalance() < 0) {
+                        int[] balances = new int[player.length];
+                        for(i=0; i>balances.length; i++) {
+                            int money = somePlayer.playerBalance();
+                            balances[i] = money;
+
+                        }
                         isWinnerWinnerChickenDinner = true;
 
                     }
