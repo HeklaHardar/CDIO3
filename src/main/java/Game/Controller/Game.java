@@ -37,6 +37,9 @@ public class Game {
             for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
                 juniorGui.gui.getUserString("tryk enter for at slå");
                 die.roll();
+
+                //checks if the player is in prison and releases him if he is.
+                player[i].releaseFromPrison(player[i].isInPrison());
                 //Moves the car on the GUI and checks if player is over start.
                 juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
                 //Subtracts money from the currentplayer and gives money to the player owning the field
@@ -54,11 +57,10 @@ public class Game {
                 juniorGui.landOnField(i, player[i].currentPosition(), player[i].playerString(), properties.getOwningStatus(), properties.getOwnedFields());
 
                 properties.setOwnedFields(properties.getOwnedFields(), player[i].currentPosition(), i);
+
+                player[i].setInPrison(properties.g);
             }
         }
-
-
-        while (true) ;
 
 
     }

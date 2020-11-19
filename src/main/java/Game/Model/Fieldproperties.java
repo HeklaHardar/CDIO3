@@ -5,7 +5,6 @@ public class Fieldproperties {
     private int position;
     private int owningStatus = 1;
     private int[] ownedFields = new int[24];
-    private boolean setOwnedStatus = false;
     private String color;
     private boolean drawCard = false;
     private boolean inPrison = false;
@@ -17,7 +16,6 @@ public class Fieldproperties {
         switch (position){
             case 1:
             case 2:
-                setOwnedStatus = true;
                 this.value = 1;
                 this.owningStatus = 1;
                 this.color = "Green";
@@ -33,7 +31,6 @@ public class Fieldproperties {
                 break;
             case 4:
             case 5:
-                setOwnedStatus = true;
                 this.value = 1;
                 this.owningStatus = 1;
                 this.color = "Cyan";
@@ -46,28 +43,24 @@ public class Fieldproperties {
                 break;
             case 7:
             case 8:
-                setOwnedStatus = true;
                 this.value = 2;
                 this.owningStatus = 1;
                 this.color = "Pink";
                 break;
             case 10:
             case 11:
-                setOwnedStatus = true;
                 this.value = 2;
                 this.owningStatus = 1;
                 this.color = "Yellow";
                 break;
             case 13:
             case 14:
-                setOwnedStatus = true;
                 this.value = 3;
                 this.owningStatus = 1;
                 this.color = "Red";
                 break;
             case 16:
             case 17:
-                setOwnedStatus = true;
                 this.value = 3;
                 this.owningStatus = 1;
                 this.color = "Yellow";
@@ -79,14 +72,12 @@ public class Fieldproperties {
                 break;
             case 19:
             case 20:
-                setOwnedStatus = true;
                 this.value = 4;
                 this.owningStatus = 1;
                 this.color = "Green";
                 break;
             case 22:
             case 23:
-                setOwnedStatus = true;
                 this.value = 5;
                 this.owningStatus = 1;
                 this.color = "Blue";
@@ -126,7 +117,7 @@ public class Fieldproperties {
         this.ownedFields[position] = player+1;
     }
 
-    public boolean isSetOwnedStatus() {
-        return setOwnedStatus;
+    public boolean is() {
+        return ;
     }
 }
