@@ -114,7 +114,6 @@ public class JuniorGui {
                 }
             }
 
-           //this.gui = new GUI(fields);
 
     }
 
@@ -137,17 +136,23 @@ public class JuniorGui {
         fields[currentPosition].setCar(player[currentPlayer],false);
         fields[newPosition].setCar(player[currentPlayer],true);
         }
+        public void moveToPrison(int currentPlayer, int currentPosition){
+            fields[currentPosition].setCar(player[currentPlayer],false);
+            fields[6].setCar(player[currentPlayer],true);
+        }
 
     public void updateGuiBalance(int i ,int balance){
         player[i].setBalance(balance);
         }
 
-    public void buyField(int currentPlayer, int currentField, String playerName){
+    public void landOnField(int currentPlayer, int currentField, String playerName, int ownable, int[]ownedfields){
         GUI_Field field = gui.getFields()[currentField];
-
-        GUI_Ownable o = (GUI_Ownable) field;
-        o.setBorder(colors[currentPlayer]);
-        o.setOwnerName(playerName);
+        if(ownable == 1 && ownedfields[currentField] == 0) {
+            GUI_Ownable o = (GUI_Ownable) field;
+            o.setBorder(colors[currentPlayer]);
+            o.setOwnerName(playerName);
+        }
+        else return;
     }
 
     public void displayCard(String cardText){

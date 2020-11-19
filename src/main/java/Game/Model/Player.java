@@ -4,6 +4,7 @@ public class Player {
 
     private boolean prisonCard = false;
     private int position = 0;
+    private boolean inPrison = false;
 
 
     // Determines variables
@@ -21,14 +22,27 @@ public class Player {
 
     //Keeps track of the currentplayers score
     public int playerBalance(){return account.score();}
-
     //Updates the currentplayers score
     public void playerBalanceUpdate(int update){account.updateScore(update);}
 
     public void starterScore(int players){account.initializeScore(players);}
 
-    public void hasPrisonCard(){
-        prisonCard = true;
+
+    public void setInPrison(){
+            inPrison = true;
+            position = 6;
+    }
+    public boolean isInPrison(){
+        return inPrison;
+    }
+    public void releaseFromPrison(boolean inPrison){
+        if(inPrison && prisonCard){
+            this.inPrison = false;
+        }
+        else if(inPrison) {
+            account.updateScore(-1);
+            this.inPrison = false;
+        }
     }
 
     public boolean checkPrisonCard(){

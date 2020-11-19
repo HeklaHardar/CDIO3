@@ -1,9 +1,6 @@
 package Game.Controller;
 
-import Game.Model.CardPicker;
-import Game.Model.Die;
-import Game.Model.Menu;
-import Game.Model.Player;
+import Game.Model.*;
 import Game.View.JuniorGui;
 
 public class Game {
@@ -25,6 +22,7 @@ public class Game {
         Menu menu = new Menu();
         juniorGui.createGui();
         menu.startGame(juniorGui);
+        Fieldproperties properties = new Fieldproperties();
 
 
         for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
@@ -36,10 +34,25 @@ public class Game {
 
 
         for (int e = 0; e < 1000; e++) {
-            juniorGui.gui.getUserString("tryk enter for at slå");
+
             for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
+                juniorGui.gui.getUserString("tryk enter for at slå");
                 die.roll();
+
+                //checks if the player is in prison and releases him if he is.
+                player[i].releaseFromPrison(player[i].isInPrison());
+                //Moves the car on the GUI and checks if player is over start.
                 juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
+                //Subtracts money from the currentplayer and gives money to the player owning the field
+                properties.Fieldproperties(player[i].currentPosition());
+                if (properties.getOwnedFields()[player[i].currentPosition()] != i + 1) {
+                    player[i].playerBalanceUpdate(0 - properties.getValue());
+
+                    if (properties.getOwnedFields()[player[i].currentPosition()] != 0) {
+                        player[properties.getOwnedFields()[player[i].currentPosition()] - 1].playerBalanceUpdate(properties.getValue());
+                        juniorGui.updateGuiBalance(properties.getOwnedFields()[player[i].currentPosition()] - 1, player[properties.getOwnedFields()[player[i].currentPosition()] - 1].playerBalance());
+                    }
+                }
                 juniorGui.updateGuiBalance(i, player[i].playerBalance());
                 //juniorGui.buyField(i,player[i].currentPosition(),player[i].playerString());
 
@@ -59,8 +72,20 @@ public class Game {
                     cardPicker.resetCardStats();
                 }
 
+                juniorGui.landOnField(i, player[i].currentPosition(), player[i].playerString(), properties.getOwningStatus(), properties.getOwnedFields());
+
+                properties.setOwnedFields(properties.getOwnedFields(), player[i].currentPosition(), i);
+
+                if (properties.isInPrison()) {
+                    juniorGui.moveToPrison(i,player[i].currentPosition());
+                    player[i].setInPrison();
+                    properties.resetPrisonStatus();
+                }
             }
         }
+
+
+        while (true) ;
 
 
     }
