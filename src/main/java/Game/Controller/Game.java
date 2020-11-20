@@ -35,6 +35,7 @@ public class Game {
             for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
                 juniorGui.gui.getUserString("tryk enter for at slå");
                 die.roll();
+                juniorGui.ShowDie(die.getValue());
 
                 //checks if the player is in prison and releases him if he is.
                 player[i].releaseFromPrison(player[i].isInPrison());
