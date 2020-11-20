@@ -8,6 +8,7 @@ public class Game {
     private String Yngst;
     private String[] Tur = new String[4];
     private Player[] player = new Player[4];
+    boolean isWinnerWinnerChickenDinner = false;
     private Player currentPlayer;
 
 
@@ -33,17 +34,16 @@ public class Game {
             //juniorGui.gui.showMessage(player[i].playerString() + " " + player[i].playerBalance());
         }
 
-
-        for (int e = 0; e < 1000; e++) {
-
+        while (isWinnerWinnerChickenDinner == false) {
             for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
                 juniorGui.gui.getUserString("tryk enter for at slå");
                 die.roll();
+                juniorGui.ShowDie(die.getValue());
 
                 //checks if the player is in prison and releases him if he is.
                 player[i].releaseFromPrison(player[i].isInPrison());
                 //Moves the car on the GUI and checks if player is over start.
-                juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(3));
+                juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
                 //Subtracts money from the currentplayer and gives money to the player owning the field
 
                 properties.Fieldproperties(player[i].currentPosition());
@@ -106,11 +106,33 @@ public class Game {
                     player[i].setInPrison();
                     properties.resetPrisonStatus();
                 }
+
+                    if (player[i].playerBalance() < 0) {
+
+                        int[] balances = new int[menu.getPlayerAmount()];
+                        for(int j=0; j<
+                                balances.length; j++) {
+                            int money = player[j].playerBalance();
+                            balances[j] = money;
+                        }
+                        int temporary=0;
+                        int balanceid = 0;
+                        int finalbalanceid = 0;
+
+                        for(int balance:balances){
+                            if(temporary<balance){
+                                temporary = balance;
+                                finalbalanceid = balanceid;
+
+                            }
+                                balanceid+=1;
+                        }
+                            System.out.println("The winner is: " + player[finalbalanceid].playerString() + " With " + player[finalbalanceid].playerBalance() + "Points");
+                        isWinnerWinnerChickenDinner = true;
+                        break;
+                }
             }
         }
-
-
-        while (true) ;
 
 
     }
