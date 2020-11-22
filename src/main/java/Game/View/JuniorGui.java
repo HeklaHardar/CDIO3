@@ -206,7 +206,6 @@ public class JuniorGui {
         }
         return 0;
 
-                Players[0] = gui.getUserString("Indtast navne for spiller 1: ");
 
     }
 
@@ -221,7 +220,3 @@ public class JuniorGui {
         return 0;
     }
 }
-
-
-
-        }

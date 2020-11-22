@@ -10,6 +10,7 @@ public class Game {
     private Player[] player = new Player[4];
     boolean isWinnerWinnerChickenDinner = false;
     private Player currentPlayer;
+    private boolean DrawAnother = false;
 
 
     public void Game() {
@@ -34,72 +35,95 @@ public class Game {
             //juniorGui.gui.showMessage(player[i].playerString() + " " + player[i].playerBalance());
         }
 
-        while (isWinnerWinnerChickenDinner == false) {
+        while (!isWinnerWinnerChickenDinner) {
             for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
-                juniorGui.gui.getUserString("tryk enter for at slå");
+               // juniorGui.gui.getUserString("tryk enter for at slå");
+                juniorGui.gui.getUserButtonPressed("","Slå terning");
                 die.roll();
                 juniorGui.ShowDie(die.getValue());
 
                 //checks if the player is in prison and releases him if he is.
                 player[i].releaseFromPrison(player[i].isInPrison());
                 //Moves the car on the GUI and checks if player is over start.
-                juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
+                juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(1));
                 //Subtracts money from the currentplayer and gives money to the player owning the field
 
-                properties.Fieldproperties(player[i].currentPosition());
-                if (properties.getOwnedFields()[player[i].currentPosition()] != i + 1) {
-                        player[i].playerBalanceUpdate(0 - properties.calculateValue(player[i].currentPosition()));
-
-                        if (properties.getOwnedFields()[player[i].currentPosition()] != 0) {
-
-                        player[properties.getOwnedFields()[player[i].currentPosition()] - 1].
-                                playerBalanceUpdate(properties.getValue());
-
-                        juniorGui.updateGuiBalance(properties.getOwnedFields()[player[i].currentPosition()] - 1, player[properties.getOwnedFields()[player[i].currentPosition()] - 1].playerBalance());
-                    }
-                }
-                juniorGui.updateGuiBalance(i, player[i].playerBalance());
-                //juniorGui.buyField(i,player[i].currentPosition(),player[i].playerString());
 
                 if(player[i].currentPosition()==3 ||player[i].currentPosition()==9||player[i].currentPosition()==15||player[i].currentPosition()==21){
+                    while(true) {
+                        cardPicker.DrawCard();
+                        juniorGui.displayCard(cardPicker.Card());
+                        juniorGui.gui.getUserButtonPressed(cardPicker.Card(),"ok");
 
-                    cardPicker.DrawCard();
-                    juniorGui.displayCard(cardPicker.Card());
-                    if(cardPicker.hasExtraMoves()) {
-                        juniorGui.moveCars(i, player[i].currentPosition(),  player[i].updatePosition(cardPicker.move()));
-                        juniorGui.updateGuiBalance(i, player[i].playerBalance());
-                    }
-                    if(cardPicker.hasintOptions()){
-                        juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(juniorGui.getIntSelection(cardPicker.Card(), cardPicker.min(), cardPicker.max())));
-                    }
-                    player[i].playerBalanceUpdate(cardPicker.cardMoney());
-                    juniorGui.updateGuiBalance(i,player[i].playerBalance());
-                    if(cardPicker.prisonCard()){
-                        player[i].updatePrisonCard(true);
-                    }
-                    if(cardPicker.birthday()){
-                        for(int y = 0; y <= menu.getPlayerAmount() - 1; y++){
-                            player[y].playerBalanceUpdate(-1);
-                            juniorGui.updateGuiBalance(y,player[y].playerBalance());
+                        if (cardPicker.hasExtraMoves()) {
+                            juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(cardPicker.move()));
+                            juniorGui.updateGuiBalance(i, player[i].playerBalance());
+
                         }
-                        player[i].playerBalanceUpdate(menu.getPlayerAmount());
-                        juniorGui.updateGuiBalance(i,player[i].playerBalance());
-                    }
-                    if(cardPicker.hasStringOptions()){
-                        juniorGui.moveCars(i, player[i].currentPosition(), player[i].setPosition(juniorGui.getStringSelection(cardPicker.possibleFields())));
-                    }
-                    if(cardPicker.ishasMoveOrCard()){
-
-                       // if(juniorGui.getMoveOrCard() == 1)
-
+                        if (cardPicker.hasintOptions()) {
+                            juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(juniorGui.getIntSelection(cardPicker.Card(), cardPicker.min(), cardPicker.max())));
+                        }
+                        player[i].playerBalanceUpdate(cardPicker.cardMoney());
+                        juniorGui.updateGuiBalance(i, player[i].playerBalance());
+                        if (cardPicker.prisonCard()) {
+                            player[i].updatePrisonCard(true);
+                        }
+                        if (cardPicker.birthday()) {
+                            for (int y = 0; y <= menu.getPlayerAmount() - 1; y++) {
+                                player[y].playerBalanceUpdate(-1);
+                                juniorGui.updateGuiBalance(y, player[y].playerBalance());
+                            }
+                            player[i].playerBalanceUpdate(menu.getPlayerAmount());
+                            juniorGui.updateGuiBalance(i, player[i].playerBalance());
+                        }
+                        if (cardPicker.hasStringOptions()) {
+                            juniorGui.moveCars(i, player[i].currentPosition(), player[i].setPosition(juniorGui.getStringSelection(cardPicker.possibleFields())));
+                            juniorGui.updateGuiBalance(i, player[i].playerBalance());
+                        }
+                        if (cardPicker.ishasMoveOrCard()) {
+                            if (juniorGui.getMoveOrCard() == 1)
+                                DrawAnother = true;
+                            else {
+                                DrawAnother = false;
+                                juniorGui.moveCars(i,player[i].currentPosition(),player[i].setPosition(player[i].updatePosition(1)));
+                            }
+                            cardPicker.resetCardStats();
+                        }
+                        if(DrawAnother) {
+                            DrawAnother = false;
+                        }
+                        else
+                            break;
 
                     }
                     cardPicker.resetCardStats();
                 }
 
-                juniorGui.landOnField(i, player[i].currentPosition(), player[i].playerString(), properties.getOwningStatus(), properties.getOwnedFields());
 
-                properties.setOwnedFields(properties.getOwnedFields(), player[i].currentPosition(), i);
+
+                    properties.Fieldproperties(player[i].currentPosition());
+                    if (properties.getOwnedFields()[player[i].currentPosition()] != i + 1) {
+
+                        if(cardPicker.freeField() && properties.getOwnedFields()[player[i].currentPosition()] == 0)
+                            player[i].playerBalanceUpdate(0);
+                        else
+                            player[i].playerBalanceUpdate(-properties.calculateValue(player[i].currentPosition()));
+
+                        cardPicker.resetFreeField();
+
+
+                        //Pays rent if a field is owned
+                        if (properties.getOwnedFields()[player[i].currentPosition()] != 0) {
+                            player[properties.getOwnedFields()[player[i].currentPosition()] - 1].playerBalanceUpdate(properties.getValue());
+                            juniorGui.updateGuiBalance(properties.getOwnedFields()[player[i].currentPosition()] - 1, player[properties.getOwnedFields()[player[i].currentPosition()] - 1].playerBalance());
+                        }
+                    }
+                    juniorGui.updateGuiBalance(i, player[i].playerBalance());
+
+                    juniorGui.landOnField(i, player[i].currentPosition(), player[i].playerString(), properties.getOwningStatus(), properties.getOwnedFields());
+
+                    properties.setOwnedFields(properties.getOwnedFields(), player[i].currentPosition(), i);
+
 
                 if (properties.isInPrison()) {
                     juniorGui.moveToPrison(i,player[i].currentPosition());
