@@ -10,7 +10,7 @@ public class Cards {
     private boolean hasExtraMoves = false;
     private boolean hasintOptions = false;
     private int money;
-    private String[] fiveMoves = {"1","2","3","4","5"};
+    private final String[] fiveMoves = {"1","2","3","4","5"};
     private int max;
     private int min;
     private boolean hasPrisonCard;
