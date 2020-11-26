@@ -21,6 +21,7 @@ public class Cards {
     private boolean freeField = false;
     private boolean hasExtraChanceCard= false;
     private boolean drawAnother = false;
+    private boolean showAvailbleFields = false;
 
     public Cards() {
 
@@ -37,6 +38,8 @@ public class Cards {
         has4StringOptions = false;
         moveOrCard = false;
         hasExtraChanceCard = false;
+        drawAnother = false;
+        showAvailbleFields = false;
 
     }
 
@@ -47,10 +50,11 @@ public class Cards {
 
     public void CardPick(int card) {
 
+
         switch (card) {
             case 1:
-                hasExtraChanceCard = true;
-
+                drawAnother = true;
+                showAvailbleFields = true;
                 //Giv dette kort til bilen og tag et chancekort mere
                 //bilen går frem til de næste ledige felt og køber det.
                 //Hvis ingen felter er ledige købes fra en anden spiller
@@ -223,9 +227,7 @@ public class Cards {
             return has4StringOptions;
     }
 
-    public void setMoveOrCard(boolean moveOrCard) {
-        this.moveOrCard = moveOrCard;
-    }
+
 
     public void setHasExtraMoves(boolean hasExtraMoves) {
         this.hasExtraMoves = hasExtraMoves;
