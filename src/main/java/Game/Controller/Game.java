@@ -8,14 +8,13 @@ public class Game {
     private final Player[] player = new Player[4];
     boolean isWinnerWinnerChickenDinner = false;
     private Player currentPlayer;
-    private boolean DrawAnother = false;
 
 
     public void Game() {
 
 
         CardPicker cardPicker = new CardPicker();
-        // JuniorGui juniorGui = JuniorGui.getInstance();
+        Cards cards = new Cards();
         JuniorGui juniorGui = new JuniorGui();
         Die die = new Die(6);
         cardPicker.CardScrambler();
@@ -49,24 +48,24 @@ public class Game {
 
                 if(player[i].currentPosition()==3 ||player[i].currentPosition()==9||player[i].currentPosition()==15||player[i].currentPosition()==21){
                     while(true) {
-                        cardPicker.DrawCard();
+                        cards.CardPick(cardPicker.DrawCard());
                         juniorGui.displayCard(cardPicker.Card());
                         juniorGui.gui.getUserButtonPressed(cardPicker.Card(),"ok");
 
-                        if (cardPicker.hasExtraMoves()) {
+                        if (cards.isHasExtraMoves()) {
                             juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(cardPicker.move()));
                             juniorGui.updateGuiBalance(i, player[i].playerBalance());
 
                         }
-                        if (cardPicker.hasintOptions()) {
+                        if (cards.isHasintOptions()) {
                             juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(juniorGui.getIntSelection(cardPicker.Card(), cardPicker.min(), cardPicker.max())));
                         }
-                        player[i].playerBalanceUpdate(cardPicker.cardMoney());
+                        player[i].playerBalanceUpdate(cards.extraMoney());
                         juniorGui.updateGuiBalance(i, player[i].playerBalance());
-                        if (cardPicker.prisonCard()) {
+                        if (cards.isHasPrisonCard()) {
                             player[i].updatePrisonCard(true);
                         }
-                        if (cardPicker.birthday()) {
+                        if (cards.isHasBirthday()) {
                             for (int y = 0; y <= menu.getPlayerAmount() - 1; y++) {
                                 player[y].playerBalanceUpdate(-1);
                                 juniorGui.updateGuiBalance(y, player[y].playerBalance());
@@ -74,13 +73,13 @@ public class Game {
                             player[i].playerBalanceUpdate(menu.getPlayerAmount());
                             juniorGui.updateGuiBalance(i, player[i].playerBalance());
                         }
-                        if (cardPicker.hasStringOptions()) {
+                        if (cards.isHasStringOptions()) {
                             juniorGui.moveCars(i, player[i].currentPosition(), player[i].setPosition(juniorGui.getStringSelection(cardPicker.possibleFields())));
                             juniorGui.updateGuiBalance(i, player[i].playerBalance());
                         }
-                        if (cardPicker.ishasMoveOrCard()) {
+                        if (cards.isMoveOrCard()) {
                             if (juniorGui.getMoveOrCard() == 1)
-                                DrawAnother = true;
+                                cards.isHasExtraMoves() = true;
                             else {
                                 DrawAnother = false;
                                 juniorGui.moveCars(i,player[i].currentPosition(),player[i].setPosition(player[i].updatePosition(1)));
@@ -149,7 +148,7 @@ public class Game {
                             }
                                 balanceid+=1;
                         }
-                            System.out.println("The winner is: " + player[finalbalanceid].playerString() + " With " + player[finalbalanceid].playerBalance() + "Points");
+                            juniorGui.showMessage("The winner is: " + player[finalbalanceid].playerString() + " With " + player[finalbalanceid].playerBalance() + " points");
                         isWinnerWinnerChickenDinner = true;
                         break;
                 }

@@ -144,6 +144,10 @@ public class JuniorGui {
         player[i].setBalance(balance);
         }
 
+        public void showMessage (String message){
+        gui.showMessage(message);
+        }
+
     public void landOnField(int currentPlayer, int currentField, String playerName, int ownable, int[]ownedfields){
         GUI_Field field = gui.getFields()[currentField];
         if(ownable == 1 && ownedfields[currentField] == 0) {

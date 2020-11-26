@@ -9,6 +9,7 @@ public class CardPicker {
     private int temp;
     private int[] cards = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
     private int first;
+    private int cardNumber=0;
 
     private String testString;
     Cards card = new Cards();
@@ -30,10 +31,10 @@ public class CardPicker {
 
     }
 
-    public void DrawCard(){
+    public int DrawCard(){
+        cardNumber = cards[0];
         System.out.println(" ");
         first = cards[0];
-        card.CardPick(cards[0]);
         System.out.println(card.cardToString());
         //card.CardPick(14);
         for (int i = 0; i < cards.length - 1;i++)
@@ -43,6 +44,7 @@ public class CardPicker {
         ) {
             System.out.print(i + " ");
         }
+        return cardNumber;
     }
 
 
@@ -57,45 +59,5 @@ public class CardPicker {
         else
             return 0;
     }
-    public boolean hasExtraMoves(){
-        return card.booleanToString();
-    }
-    public int cardMoney(){
-        return card.extraMoney();
-    }
-    public boolean hasintOptions(){
-        return card.isHasintOptions();
-    }
-
-    public int max(){
-        return card.max();
-    }
-    public int min (){
-        return card.min();
-    }
-    public void resetCardStats(){
-        card.resetStats();
-    }
-    public void resetFreeField(){
-        card.resetfreeField();
-    }
-
-    public boolean prisonCard(){
-        return card.isHasPrisonCard();
-    }
-    public boolean birthday(){
-        return card.isHasBirthday();
-    }
-    public String[] possibleFields(){return card.getPossibleFields();}
-    public String[] fiveMoves(){
-        return card.getFiveMoves();
-    }
-    public boolean hasStringOptions(){return card.isHasStringOptions();}
-    public boolean ishasMoveOrCard(){
-        return card.isMoveOrCard();
-    }
-    public boolean freeField(){return card.isFreeField();}
-
-
 
 }

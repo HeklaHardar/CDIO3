@@ -1,8 +1,6 @@
 package Game.Model;
 
 
-import Game.View.JuniorGui;
-
 public class Cards {
 
     private int move;
@@ -21,6 +19,7 @@ public class Cards {
     private String[] possibleFields2 = new String[4];
     private boolean moveOrCard = false;
     private boolean freeField = false;
+    private boolean hasExtraChanceCard= false;
 
     public Cards() {
 
@@ -36,6 +35,7 @@ public class Cards {
         hasStringOptions = false;
         has4StringOptions = false;
         moveOrCard = false;
+        hasExtraChanceCard = false;
 
     }
 
@@ -48,6 +48,8 @@ public class Cards {
 
         switch (card) {
             case 1:
+                hasExtraChanceCard = true;
+
                 //Giv dette kort til bilen og tag et chancekort mere
                 //bilen går frem til de næste ledige felt og køber det.
                 //Hvis ingen felter er ledige købes fra en anden spiller
@@ -187,7 +189,9 @@ public class Cards {
     public String cardToString() {
 
         return cardText;
-
+    }
+    public boolean isHasExtraMoves() {
+        return hasExtraMoves;
     }
     public boolean booleanToString(){
 
@@ -227,9 +231,15 @@ public class Cards {
         else
             return has4StringOptions;
     }
+
+    public void setMoveOrCard(boolean moveOrCard) {
+        this.moveOrCard = moveOrCard;
+    }
+
     public boolean isMoveOrCard(){
         return moveOrCard;
     }
     public boolean isFreeField(){return freeField;}
+
 
 }
