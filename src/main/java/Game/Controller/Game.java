@@ -3,11 +3,13 @@ package Game.Controller;
 import Game.Model.*;
 import Game.View.JuniorGui;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Game {
 
     private final Player[] player = new Player[4];
     boolean isWinnerWinnerChickenDinner = false;
-    private Player currentPlayer;
 
 
     public void Game() {
@@ -57,6 +59,7 @@ public class Game {
                             juniorGui.updateGuiBalance(i, player[i].playerBalance());
 
                         }
+
                         if (cards.isHasintOptions()) {
                             juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(juniorGui.getIntSelection(cards.cardToString(), cards.min(), cards.max())));
                         }

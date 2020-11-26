@@ -19,14 +19,14 @@ public class JuniorGui {
     private GUI_Car.Type[] type = {GUI_Car.Type.CAR, GUI_Car.Type.RACECAR, GUI_Car.Type.UFO, GUI_Car.Type.TRACTOR};
     GUI_Ownable o = (GUI_Ownable) fields[5];
     private String stringChoice;
+    private String[] fieldTitles = {"Burgerbaren","Pizzariaet","","Slikbutikken","Iskiosken","","Museet","Biblioteket","","Skaterparken",
+            "Svømmingpoolen","", "Spillehallen", "Biografen","","Legetøjsbutikken","Dyrehandlen","","Bowlinghallen","Zoo","","Vandlandet","Strandpromenaden",""};
 
 
     public JuniorGui(){
             // Laver array
             //GUI_Field[] fields = new GUI_Field[24];
             Color[] fieldColors = {Color.GREEN,Color.BLUE,Color.PINK,Color.YELLOW,Color.RED, Color.cyan, new Color(34,139,34), Color.ORANGE};
-            String[] fieldTitles = {"Burgerbaren","Pizzariaet","","Slikbutikken","Iskiosken","","Museet","Biblioteket","","Skaterparken",
-                    "Svømmingpoolen","", "Spillehallen", "Biografen","","Legetøjsbutikken","Dyrehandlen","","Bowlinghallen","Zoo","","Vandlandet","Strandpromenaden",""};
 
             // Laver orange startfelt
             fields[0] = new GUI_Start("Start", "", "Her starter du", Color.ORANGE, Color.WHITE);
@@ -156,6 +156,10 @@ public class JuniorGui {
             o.setOwnerName(playerName);
         }
         else return;
+    }
+
+    public String getFieldTitles(int index) {
+        return fieldTitles[index];
     }
 
     public void displayCard(String cardText) {

@@ -108,13 +108,6 @@ public class Fieldproperties {
         return owningStatus;
     }
 
-    public String[] getColors() {
-        return fieldColors;
-    }
-
-    public boolean isDrawCard() {
-        return drawCard;
-    }
 
     public boolean isInPrison() {
         return inPrison;
@@ -128,6 +121,7 @@ public class Fieldproperties {
     public int[] getOwnedFields() {
         return ownedFields;
     }
+
 
     public void setOwnedFields(int[] ownedFields, int position, int player) {
         if(this.ownedFields[position]==0) {
