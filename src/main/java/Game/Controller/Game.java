@@ -42,23 +42,23 @@ public class Game {
                 //checks if the player is in prison and releases him if he is.
                 player[i].releaseFromPrison(player[i].isInPrison());
                 //Moves the car on the GUI and checks if player is over start.
-                juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
+                juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(3));
                 //Subtracts money from the currentplayer and gives money to the player owning the field
 
 
                 if(player[i].currentPosition()==3 ||player[i].currentPosition()==9||player[i].currentPosition()==15||player[i].currentPosition()==21){
                     while(true) {
                         cards.CardPick(cardPicker.DrawCard());
-                        juniorGui.displayCard(cardPicker.Card());
-                        juniorGui.gui.getUserButtonPressed(cardPicker.Card(),"ok");
+                        juniorGui.displayCard(cards.cardToString());
+                        juniorGui.gui.getUserButtonPressed(cards.cardToString(),"ok");
 
                         if (cards.isHasExtraMoves()) {
-                            juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(cardPicker.move()));
+                            juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(cards.move()));
                             juniorGui.updateGuiBalance(i, player[i].playerBalance());
 
                         }
                         if (cards.isHasintOptions()) {
-                            juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(juniorGui.getIntSelection(cardPicker.Card(), cardPicker.min(), cardPicker.max())));
+                            juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(juniorGui.getIntSelection(cards.cardToString(), cards.min(), cards.max())));
                         }
                         player[i].playerBalanceUpdate(cards.extraMoney());
                         juniorGui.updateGuiBalance(i, player[i].playerBalance());
@@ -74,26 +74,27 @@ public class Game {
                             juniorGui.updateGuiBalance(i, player[i].playerBalance());
                         }
                         if (cards.isHasStringOptions()) {
-                            juniorGui.moveCars(i, player[i].currentPosition(), player[i].setPosition(juniorGui.getStringSelection(cardPicker.possibleFields())));
+                            juniorGui.moveCars(i, player[i].currentPosition(), player[i].setPosition(juniorGui.getStringSelection(cards.getPossibleFields())));
                             juniorGui.updateGuiBalance(i, player[i].playerBalance());
                         }
                         if (cards.isMoveOrCard()) {
                             if (juniorGui.getMoveOrCard() == 1)
-                                cards.isHasExtraMoves() = true;
+                                cards.setDrawAnother(true);
                             else {
-                                DrawAnother = false;
+                                cards.setDrawAnother(false);
                                 juniorGui.moveCars(i,player[i].currentPosition(),player[i].setPosition(player[i].updatePosition(1)));
                             }
-                            cardPicker.resetCardStats();
+                            cards.resetStats();
                         }
-                        if(DrawAnother) {
-                            DrawAnother = false;
+                        if(cards.isDrawAnother()) {
+
+                            cards.setDrawAnother(false);
                         }
                         else
                             break;
 
                     }
-                    cardPicker.resetCardStats();
+                    cards.resetStats();
                 }
 
 
@@ -101,12 +102,12 @@ public class Game {
                     properties.Fieldproperties(player[i].currentPosition());
                     if (properties.getOwnedFields()[player[i].currentPosition()] != i + 1) {
 
-                        if(cardPicker.freeField() && properties.getOwnedFields()[player[i].currentPosition()] == 0)
+                        if(cards.isFreeField() && properties.getOwnedFields()[player[i].currentPosition()] == 0)
                             player[i].playerBalanceUpdate(0);
                         else
                             player[i].playerBalanceUpdate(-properties.calculateValue(player[i].currentPosition()));
 
-                        cardPicker.resetFreeField();
+                        cards.resetfreeField();
 
 
                         //Pays rent if a field is owned

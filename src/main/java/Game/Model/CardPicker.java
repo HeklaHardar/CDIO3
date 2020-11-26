@@ -50,14 +50,4 @@ public class CardPicker {
 
 
 
-    public String Card(){
-        return card.cardToString();
-    }
-    public int move(){
-        if(card.booleanToString())
-            return card.extraFields();
-        else
-            return 0;
-    }
-
 }

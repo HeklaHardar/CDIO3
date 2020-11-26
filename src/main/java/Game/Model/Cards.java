@@ -20,6 +20,7 @@ public class Cards {
     private boolean moveOrCard = false;
     private boolean freeField = false;
     private boolean hasExtraChanceCard= false;
+    private boolean drawAnother = false;
 
     public Cards() {
 
@@ -193,22 +194,12 @@ public class Cards {
     public boolean isHasExtraMoves() {
         return hasExtraMoves;
     }
-    public boolean booleanToString(){
 
-        return hasExtraMoves;
-
-    }
     public int extraMoney(){
         return money;
     }
     public boolean isHasintOptions(){
         return hasintOptions;
-    }
-    public int max(){
-        return max;
-    }
-    public int min(){
-        return min;
     }
     public boolean isHasPrisonCard() {
         return hasPrisonCard;
@@ -236,10 +227,36 @@ public class Cards {
         this.moveOrCard = moveOrCard;
     }
 
+    public void setHasExtraMoves(boolean hasExtraMoves) {
+        this.hasExtraMoves = hasExtraMoves;
+    }
+
     public boolean isMoveOrCard(){
         return moveOrCard;
     }
     public boolean isFreeField(){return freeField;}
+
+    public int move(){
+        if(hasExtraMoves)
+            return move;
+        else
+            return 0;
+    }
+
+    public void setDrawAnother(boolean drawAnother) {
+        this.drawAnother = drawAnother;
+    }
+
+    public boolean isDrawAnother() {
+        return drawAnother;
+    }
+
+    public int max(){
+        return max;
+    }
+    public int min(){
+        return min;
+    }
 
 
 }
