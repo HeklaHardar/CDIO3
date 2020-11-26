@@ -38,7 +38,7 @@ public class Cards {
         has4StringOptions = false;
         moveOrCard = false;
         hasExtraChanceCard = false;
-        drawAnother = false;
+
         showAvailbleFields = false;
 
     }
