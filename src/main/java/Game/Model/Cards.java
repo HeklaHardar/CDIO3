@@ -1,6 +1,7 @@
 package Game.Model;
 
 
+
 public class Cards {
 
     private int move;
@@ -22,6 +23,8 @@ public class Cards {
     private boolean hasExtraChanceCard= false;
     private boolean drawAnother = false;
     private boolean showAvailbleFields = false;
+
+    CardPicker cardPicker = new CardPicker();
 
     public Cards() {
 
@@ -48,10 +51,10 @@ public class Cards {
     }
 
 
-    public void CardPick(int card) {
+    public void CardPick() {
 
 
-        switch (card) {
+        switch (cardPicker.DrawCard()) {
             case 1:
                 break;
             case 2:

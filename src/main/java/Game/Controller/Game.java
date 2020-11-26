@@ -50,7 +50,7 @@ public class Game {
 
                 if(player[i].currentPosition()==3 ||player[i].currentPosition()==9||player[i].currentPosition()==15||player[i].currentPosition()==21){
                     while(true) {
-                        cards.CardPick(cardPicker.DrawCard());
+                        cards.CardPick();
                         juniorGui.displayCard(cards.cardToString());
                         juniorGui.gui.getUserButtonPressed(cards.cardToString(),"ok");
 
