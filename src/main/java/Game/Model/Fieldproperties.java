@@ -6,7 +6,7 @@ public class Fieldproperties {
     private int owningStatus = 1;
     private int[] ownedFields = new int[24];
     private String[] fieldColors = {"","Green","Green","","Cyan","Cyan","","Pink","Pink","","Orange","Orange",
-            "","Red","Red","","Yellow","Yellow","","Green","Green","","Blue","Blue"};
+            "","Red","Red","","Yellow","Yellow","","DarkGreen","DarkGreen","","Blue","Blue"};
     private String color;
     private boolean drawCard = false;
     private boolean inPrison = false;
@@ -76,7 +76,7 @@ public class Fieldproperties {
             case 20:
                 this.value = 4;
                 this.owningStatus = 1;
-                this.color = "Green";
+                this.color = "DarkGreen";
                 break;
             case 22:
             case 23:
