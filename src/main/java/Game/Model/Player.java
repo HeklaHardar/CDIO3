@@ -59,7 +59,6 @@ public class Player {
     public int setPosition(int newPosition){
         if(currentPosition() > newPosition) {
             account.updateScore(2);
-            System.out.println("passeret start");
         }
         position = newPosition;
         return position;
