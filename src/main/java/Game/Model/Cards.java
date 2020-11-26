@@ -104,7 +104,7 @@ public class Cards {
             case 9:
                 //Gratis lyseblåt felt
                 cardText = "GRATIS FELT! \n ryk frem til et lyseblåt felt.\n Hvis det er ledigt, får du det GRATIS!\n Ellers skal du betale leje til ejeren.";
-                possibleFields[0] = "Slikbuttiken";
+                possibleFields[0] = "Slikbutikken";
                 possibleFields[1] = "Iskiosken";
                 hasStringOptions = true;
                 freeField = true;
