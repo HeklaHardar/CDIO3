@@ -8,7 +8,6 @@ public class Fieldproperties {
     private String[] fieldColors = {"","Green","Green","","Cyan","Cyan","","Pink","Pink","","Orange","Orange",
             "","Red","Red","","Yellow","Yellow","","DarkGreen","DarkGreen","","Blue","Blue"};
     private String color;
-    private boolean drawCard = false;
     private boolean inPrison = false;
 
 
