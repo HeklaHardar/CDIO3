@@ -51,10 +51,7 @@ public class Player {
         prisonCard = Card;
     }
 
-    // Does the player have a get out of jail free card?
-    public boolean checkPrisonCard(){
-        return prisonCard;
-    }
+
     // Check where player is currently
     public int currentPosition(){
         return position;
