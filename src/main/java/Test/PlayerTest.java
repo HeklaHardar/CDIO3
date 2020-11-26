@@ -15,7 +15,8 @@ public class PlayerTest {
         for(int i = 0; i < 1000; i++){
             die.roll();
             player.updatePosition(die.getValue());
-            assertTrue(String.valueOf(true),player.currentPosition() <= 24);
+            assertTrue(String.valueOf(true),player.currentPosition() <= 23);
+            assertTrue(String.valueOf(true),player.currentPosition() >= 0);
 
         }
 
