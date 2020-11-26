@@ -28,6 +28,8 @@ public class Cards {
 
     public Cards() {
 
+        cardPicker.CardScrambler();
+
     }
 
     public void resetStats(){

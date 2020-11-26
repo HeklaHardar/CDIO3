@@ -15,11 +15,10 @@ public class Game {
     public void Game() {
 
 
-        CardPicker cardPicker = new CardPicker();
         Cards cards = new Cards();
         JuniorGui juniorGui = new JuniorGui();
         Die die = new Die(6);
-        cardPicker.CardScrambler();
+
 
         Menu menu = new Menu();
         juniorGui.createGui();
@@ -150,7 +149,7 @@ public class Game {
                             }
                                 balanceid+=1;
                         }
-                            juniorGui.showMessage("The winner is: " + player[finalbalanceid].playerString() + " with " + player[finalbalanceid].playerBalance() + " points");
+                            juniorGui.showMessage("Vinderen er: " + player[finalbalanceid].playerString() + " med " + player[finalbalanceid].playerBalance() + " penge");
                         isWinnerWinnerChickenDinner = true;
                         break;
                 }
