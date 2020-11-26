@@ -37,7 +37,7 @@ public class Game {
         while (!isWinnerWinnerChickenDinner) {
             for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
                // juniorGui.gui.getUserString("tryk enter for at slå");
-                juniorGui.gui.getUserButtonPressed("","Slå terning");
+                juniorGui.gui.getUserButtonPressed("Det er " + player[i].playerString() + "'s tur","Slå terning");
                 die.roll();
                 juniorGui.ShowDie(die.getValue());
 
@@ -109,9 +109,7 @@ public class Game {
                             player[i].playerBalanceUpdate(0);
                         else
                             player[i].playerBalanceUpdate(-properties.calculateValue(player[i].currentPosition()));
-
                         cards.resetfreeField();
-
 
                         //Pays rent if a field is owned
                         if (properties.getOwnedFields()[player[i].currentPosition()] != 0) {
@@ -152,11 +150,13 @@ public class Game {
                             }
                                 balanceid+=1;
                         }
-                            juniorGui.showMessage("The winner is: " + player[finalbalanceid].playerString() + " With " + player[finalbalanceid].playerBalance() + " points");
+                            juniorGui.showMessage("The winner is: " + player[finalbalanceid].playerString() + " with " + player[finalbalanceid].playerBalance() + " points");
                         isWinnerWinnerChickenDinner = true;
                         break;
                 }
+
             }
+
         }
 
 

@@ -92,7 +92,7 @@ public class Fieldproperties {
 
     }
     public int calculateValue(int position) {
-        for (int i=0 ; i < 22; i++){
+        for (int i=0 ; i <= 23; i++){
             if((i!=position) && fieldColors[i] == fieldColors[position] && (ownedFields[i] == ownedFields[position] && ownedFields[i]!=0)){
                     value = value*2;
             }

@@ -190,13 +190,11 @@ public class Cards {
         return move;
     }
     public String cardToString() {
-
         return cardText;
     }
     public boolean isHasExtraMoves() {
         return hasExtraMoves;
     }
-
     public int extraMoney(){
         return money;
     }
@@ -224,33 +222,25 @@ public class Cards {
         else
             return has4StringOptions;
     }
-
-
-
     public void setHasExtraMoves(boolean hasExtraMoves) {
         this.hasExtraMoves = hasExtraMoves;
     }
-
     public boolean isMoveOrCard(){
         return moveOrCard;
     }
     public boolean isFreeField(){return freeField;}
-
     public int move(){
         if(hasExtraMoves)
             return move;
         else
             return 0;
     }
-
     public void setDrawAnother(boolean drawAnother) {
         this.drawAnother = drawAnother;
     }
-
     public boolean isDrawAnother() {
         return drawAnother;
     }
-
     public int max(){
         return max;
     }
