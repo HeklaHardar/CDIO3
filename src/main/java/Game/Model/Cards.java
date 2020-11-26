@@ -53,11 +53,6 @@ public class Cards {
 
         switch (card) {
             case 1:
-                drawAnother = true;
-                showAvailbleFields = true;
-                //Giv dette kort til bilen og tag et chancekort mere
-                //bilen går frem til de næste ledige felt og køber det.
-                //Hvis ingen felter er ledige købes fra en anden spiller
                 break;
             case 2:
                 cardText = "Ryk frem til start!";
@@ -95,8 +90,8 @@ public class Cards {
                 //Betal 2 penge til banken
                 break;
             case 8:
-                //Samme som case 4 men med orange eller grøn
-                cardText = "GRATIS FELT! \n ryk frem til et orange eller grøn felt.\n Hvis det er ledigt, får du det GRATIS!\n Ellers skal du betale leje til ejeren.";
+                //Samme som case 4 men med orange eller mørkegrønt
+                cardText = "GRATIS FELT! \n ryk frem til et orange eller mørkegrønt felt.\n Hvis det er ledigt, får du det GRATIS!\n Ellers skal du betale leje til ejeren.";
 
                 possibleFields2[0] = "Skaterparken";
                 possibleFields2[1] = "Swimmingpoolen";
@@ -158,7 +153,7 @@ public class Cards {
                 hasStringOptions = true;
                 break;
             case 18:
-                cardText = "GRATIS FELT! \n Ryk frem til skaterparken\n for at lave det perfekte grind! \nHvis ingen ejer den \n får du den GRATIS! \n Ellers skal du BETALE \n leje til ejeren.";
+                cardText = "GRATIS FELT! \n Ryk frem til skaterparken\n for at lave det perfekte grind! \nHvis ingen ejer den \n får du den GRATIS! \n Ellers skal du BETALE  leje til ejeren.";
                 hasExtraMoves = true;
                 freeField = true;
                 move = 700;
@@ -175,8 +170,8 @@ public class Cards {
                 has4StringOptions = true;
                 break;
             case 20:
-                //gratis brunt eller gult
-                cardText = "GRATIS FELT! \n ryk frem til et brunt eller gult felt.\n Hvis det er ledigt, får du det GRATIS!\n Ellers skal du betale leje til ejeren.";
+                //gratis lysegrønt eller gult
+                cardText = "GRATIS FELT! \n ryk frem til et lysegrønt eller gult felt.\n Hvis det er ledigt, får du det GRATIS!\n Ellers skal du betale leje til ejeren.";
 
                 possibleFields2[1] = "Pizzariaet";
                 possibleFields2[0] = "Burgerbaren";
