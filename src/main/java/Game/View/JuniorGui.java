@@ -183,7 +183,7 @@ public class JuniorGui {
                 return 10;
             case "Swimmingpoolen":
                 return 11;
-            case "Slikbuttiken":
+            case "Slikbutikken":
                 return 4;
             case "Iskiosken":
                 return 5;

@@ -15,11 +15,10 @@ public class Game {
     public void Game() {
 
 
-        CardPicker cardPicker = new CardPicker();
         Cards cards = new Cards();
         JuniorGui juniorGui = new JuniorGui();
         Die die = new Die(6);
-        cardPicker.CardScrambler();
+
 
         Menu menu = new Menu();
         juniorGui.createGui();
@@ -37,7 +36,7 @@ public class Game {
         while (!isWinnerWinnerChickenDinner) {
             for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
                // juniorGui.gui.getUserString("tryk enter for at slå");
-                juniorGui.gui.getUserButtonPressed("","Slå terning");
+                juniorGui.gui.getUserButtonPressed("Det er " + player[i].playerString() + "'s tur","Slå terning");
                 die.roll();
                 juniorGui.ShowDie(die.getValue());
 
@@ -50,7 +49,7 @@ public class Game {
                     properties.Fieldproperties(player[i].currentPosition());
                 if(properties.getdrawCard()==true){
                     while(true) {
-                        cards.CardPick(cardPicker.DrawCard());
+                        cards.CardPick();
                         juniorGui.displayCard(cards.cardToString());
                         juniorGui.gui.getUserButtonPressed(cards.cardToString(),"ok");
 
@@ -106,9 +105,7 @@ public class Game {
                             player[i].playerBalanceUpdate(0);
                         else
                             player[i].playerBalanceUpdate(-properties.calculateValue(player[i].currentPosition()));
-
                         cards.resetfreeField();
-
 
                         //Pays rent if a field is owned
                         if (properties.getOwnedFields()[player[i].currentPosition()] != 0) {
@@ -149,11 +146,13 @@ public class Game {
                             }
                                 balanceid+=1;
                         }
-                            juniorGui.showMessage("The winner is: " + player[finalbalanceid].playerString() + " With " + player[finalbalanceid].playerBalance() + " points");
+                            juniorGui.showMessage("Vinderen er: " + player[finalbalanceid].playerString() + " med " + player[finalbalanceid].playerBalance() + " penge");
                         isWinnerWinnerChickenDinner = true;
                         break;
                 }
+
             }
+
         }
 
 

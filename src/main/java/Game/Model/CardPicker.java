@@ -23,7 +23,6 @@ public class CardPicker {
 
     public int DrawCard() {
         cardNumber = cards[0];
-        System.out.println(" ");
         first = cards[0];
 
         for (int i = 0; i < cards.length - 1; i++)

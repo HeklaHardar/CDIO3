@@ -1,6 +1,7 @@
 package Game.Model;
 
 
+
 public class Cards {
 
     private int move;
@@ -23,7 +24,11 @@ public class Cards {
     private boolean drawAnother = false;
     private boolean showAvailbleFields = false;
 
+    CardPicker cardPicker = new CardPicker();
+
     public Cards() {
+
+        cardPicker.CardScrambler();
 
     }
 
@@ -38,7 +43,7 @@ public class Cards {
         has4StringOptions = false;
         moveOrCard = false;
         hasExtraChanceCard = false;
-        drawAnother = false;
+
         showAvailbleFields = false;
 
     }
@@ -48,10 +53,10 @@ public class Cards {
     }
 
 
-    public void CardPick(int card) {
+    public void CardPick() {
 
 
-        switch (card) {
+        switch (cardPicker.DrawCard()) {
             case 1:
                 break;
             case 2:
@@ -187,13 +192,11 @@ public class Cards {
         return move;
     }
     public String cardToString() {
-
         return cardText;
     }
     public boolean isHasExtraMoves() {
         return hasExtraMoves;
     }
-
     public int extraMoney(){
         return money;
     }
@@ -221,33 +224,25 @@ public class Cards {
         else
             return has4StringOptions;
     }
-
-
-
     public void setHasExtraMoves(boolean hasExtraMoves) {
         this.hasExtraMoves = hasExtraMoves;
     }
-
     public boolean isMoveOrCard(){
         return moveOrCard;
     }
     public boolean isFreeField(){return freeField;}
-
     public int move(){
         if(hasExtraMoves)
             return move;
         else
             return 0;
     }
-
     public void setDrawAnother(boolean drawAnother) {
         this.drawAnother = drawAnother;
     }
-
     public boolean isDrawAnother() {
         return drawAnother;
     }
-
     public int max(){
         return max;
     }
