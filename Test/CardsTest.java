@@ -1,6 +1,7 @@
-package Test;
+
 
 import Game.Model.*;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
