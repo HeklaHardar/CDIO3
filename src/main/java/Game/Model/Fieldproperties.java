@@ -2,18 +2,17 @@ package Game.Model;
 
 public class Fieldproperties {
     private int value;
-    private int position;
     private int owningStatus = 1;
     private int[] ownedFields = new int[24];
     private String[] fieldColors = {"","Green","Green","","Cyan","Cyan","","Pink","Pink","","Orange","Orange",
             "","Red","Red","","Yellow","Yellow","","DarkGreen","DarkGreen","","Blue","Blue"};
     private String color;
     private boolean inPrison = false;
+    private boolean drawCard = false;
 
 
     //owningStatus: 1 = ownable, 2 = owned, 3 = not ownable
     public void Fieldproperties(int position){
-        this.position = position;
         switch (position){
             case 1:
             case 2:
@@ -119,6 +118,10 @@ public class Fieldproperties {
 
     public int[] getOwnedFields() {
         return ownedFields;
+    }
+
+    public boolean getdrawCard(){
+        return drawCard;
     }
 
 
