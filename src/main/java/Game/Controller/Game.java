@@ -9,6 +9,9 @@ public class Game {
 
     private final Player[] player = new Player[4];
     boolean isWinnerWinnerChickenDinner = false;
+    private int temporary;
+    private int balanceid;
+    private int finalbalanceid;
 
     public static void main(String[] args) {
 
@@ -143,9 +146,9 @@ public class Game {
                             int money = player[j].playerBalance();
                             balances[j] = money;
                         }
-                        int temporary=0;
-                        int balanceid = 0;
-                        int finalbalanceid = 0;
+                        temporary=0;
+                        balanceid = 0;
+                        finalbalanceid = 0;
 
                         for(int balance:balances){
                             if(temporary<balance){
