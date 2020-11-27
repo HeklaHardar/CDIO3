@@ -5,6 +5,7 @@ public class Player {
     private boolean prisonCard = false;
     private int position = 0;
     private boolean inPrison = false;
+    private int oldPosition;
 
 
     // Determines variables
@@ -65,6 +66,7 @@ public class Player {
     }
     // Move player with die
     public int updatePosition(int die){
+        oldPosition = currentPosition();
         position += die;
         if(die == 900) {
             position = 0;
@@ -74,10 +76,9 @@ public class Player {
             position = 23;
         }
         else if(die == 700){
-            if (currentPosition() > 10)
+            if (oldPosition > 10)
                 account.updateScore(2);
             position = 10;
-
         }
         else if(position > 23){
             position = position - 24;
