@@ -52,8 +52,8 @@ public class Game {
                 juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
                 //Subtracts money from the currentplayer and gives money to the player owning the field
 
-
-                if(player[i].currentPosition()==3 ||player[i].currentPosition()==9||player[i].currentPosition()==15||player[i].currentPosition()==21){
+                    properties.Fieldproperties(player[i].currentPosition());
+                if(properties.getdrawCard()==true){
                     while(true) {
                         cards.CardPick();
                         juniorGui.displayCard(cards.cardToString());
@@ -105,10 +105,7 @@ public class Game {
                     cards.resetStats();
                 }
 
-
-
-                    properties.Fieldproperties(player[i].currentPosition());
-                    if (properties.getOwnedFields()[player[i].currentPosition()] != i + 1) {
+                if (properties.getOwnedFields()[player[i].currentPosition()] != i + 1) {
 
                         if(cards.isFreeField() && properties.getOwnedFields()[player[i].currentPosition()] == 0)
                             player[i].playerBalanceUpdate(0);
