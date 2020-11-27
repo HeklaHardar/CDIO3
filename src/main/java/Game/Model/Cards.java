@@ -27,9 +27,7 @@ public class Cards {
     CardPicker cardPicker = new CardPicker();
 
     public Cards() {
-
         cardPicker.CardScrambler();
-
     }
 
     public void resetStats(){
