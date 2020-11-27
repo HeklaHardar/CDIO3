@@ -167,7 +167,7 @@ public class Cards {
                 //gratis lyseblåt eller rødt
                 cardText = "GRATIS FELT! \n ryk frem til et lyseblåt eller rødt felt.\n Hvis det er ledigt, får du det GRATIS!\n Ellers skal du betale leje til ejeren.";
 
-                possibleFields2[0] = "Slikbuttiken";
+                possibleFields2[0] = "Slikbutikken";
                 possibleFields2[1] = "Iskiosken";
                 possibleFields2[2] = "Spillehallen";
                 possibleFields2[3] = "Biografen";
