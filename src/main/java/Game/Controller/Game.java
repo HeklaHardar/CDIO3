@@ -3,13 +3,19 @@ package Game.Controller;
 import Game.Model.*;
 import Game.View.JuniorGui;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class Game {
 
     private final Player[] player = new Player[4];
     boolean isWinnerWinnerChickenDinner = false;
+
+    public static void main(String[] args) {
+
+        Game game = new Game();
+        game.Game();
+
+    }
 
 
     public void Game() {
