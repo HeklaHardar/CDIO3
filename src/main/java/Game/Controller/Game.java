@@ -14,8 +14,10 @@ public class Game {
     private int finalbalanceid;
 
     public static void main(String[] args) {
-
+        //Instantiating game object
         Game game = new Game();
+
+        //plays the game
         game.Game();
 
     }
@@ -39,12 +41,10 @@ public class Game {
             player[i] = new Player(menu.playernamesToString()[i]);
             player[i].starterScore(menu.getPlayerAmount());
             juniorGui.guiPlayers(player[i].playerString(), player[i].playerBalance(), i);
-            //juniorGui.gui.showMessage(player[i].playerString() + " " + player[i].playerBalance());
         }
 
         while (!isWinnerWinnerChickenDinner) {
             for (int i = 0; i <= menu.getPlayerAmount() - 1; i++) {
-               // juniorGui.gui.getUserString("tryk enter for at slå");
                 juniorGui.gui.getUserButtonPressed("Det er " + player[i].playerString() + "'s tur","Slå terning");
                 die.roll();
                 juniorGui.ShowDie(die.getValue());
@@ -53,11 +53,12 @@ public class Game {
                 player[i].releaseFromPrison(player[i].isInPrison());
                 //Moves the car on the GUI and checks if player is over start.
                 juniorGui.moveCars(i, player[i].currentPosition(), player[i].updatePosition(die.getValue()));
-                //Subtracts money from the currentplayer and gives money to the player owning the field
 
-
+                //Checks if player has landed on a chancecard field.
                 if(player[i].currentPosition()==3 ||player[i].currentPosition()==9||player[i].currentPosition()==15||player[i].currentPosition()==21){
                     while(true) {
+
+                        //Draws card and checks what card has been drawn and completes the actions on the card
                         cards.CardPick();
                         juniorGui.displayCard(cards.cardToString());
                         juniorGui.gui.getUserButtonPressed(cards.cardToString(),"ok");
@@ -97,6 +98,7 @@ public class Game {
                             }
                             cards.resetStats();
                         }
+                        //Checks if player has chosen to draw another card, if so reruns the loop
                         if(cards.isDrawAnother()) {
 
                             cards.setDrawAnother(false);
@@ -109,7 +111,7 @@ public class Game {
                 }
 
 
-
+                    //Checks the properties of the field that the player landed on
                     properties.Fieldproperties(player[i].currentPosition());
                     if (properties.getOwnedFields()[player[i].currentPosition()] != i + 1) {
 

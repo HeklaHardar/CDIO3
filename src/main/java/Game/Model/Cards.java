@@ -4,6 +4,8 @@ package Game.Model;
 
 public class Cards {
 
+
+    //Instantiating variables
     private int move;
     private String cardText;
     private boolean hasExtraMoves = false;
@@ -26,12 +28,13 @@ public class Cards {
 
     CardPicker cardPicker = new CardPicker();
 
+    //Calls for cardPicker to scramble the cards.
     public Cards() {
         cardPicker.CardScrambler();
     }
 
+    //Resets booleans for all the cards, so that they dont interfeer with one another
     public void resetStats(){
-
         hasExtraMoves = false;
         hasintOptions = false;
         money = 0;
@@ -41,11 +44,10 @@ public class Cards {
         has4StringOptions = false;
         moveOrCard = false;
         hasExtraChanceCard = false;
-
         showAvailbleFields = false;
-
     }
 
+    //Resets the freefield boolean, if a card with that value has been drawn
     public void resetfreeField(){
         freeField = false;
     }
@@ -53,7 +55,7 @@ public class Cards {
 
     public void CardPick() {
 
-
+        //Calls cardPicker.DrawCard for a random int.
         switch (cardPicker.DrawCard()) {
             case 1:
                 break;
@@ -85,7 +87,6 @@ public class Cards {
                 moveOrCard = true;
                 break;
             case 6:
-                //Samme som case 1 men for skibet
                 break;
             case 7:
                 cardText = "Du har spist for meget slik! \n Betal 2 monopoly penge til banken";
@@ -122,10 +123,8 @@ public class Cards {
                 hasExtraMoves = true;
                 break;
             case 12:
-                //Katten kortet
                 break;
             case 13:
-                //Hunden kortet
                 break;
             case 14:
                 cardText = "Det er din fødselsdag! \n Alle giver dig 1 monopoly penge \n TILLYKE MED\n FØDSELSDAGEN";

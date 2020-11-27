@@ -37,7 +37,8 @@ public class Player {
     public boolean isInPrison(){
         return inPrison;
     }
-    // release player from prison
+
+    // release player from prison & checks if player has prisonCard and uses it if true
     public void releaseFromPrison(boolean inPrison){
         if(inPrison && prisonCard){
             this.inPrison = false;
@@ -48,6 +49,8 @@ public class Player {
             this.inPrison = false;
         }
     }
+
+    //Sets the prisonCard to true, if the player draws the prisonCard
     public void updatePrisonCard(boolean Card){
         prisonCard = Card;
     }
@@ -57,6 +60,8 @@ public class Player {
     public int currentPosition(){
         return position;
     }
+
+    //Easy way to move the player without having to count the die value
     public int setPosition(int newPosition){
         if(currentPosition() > newPosition) {
             account.updateScore(2);
